@@ -1,63 +1,71 @@
 /* =============================================
-   MAXPATRIE — Design System : Identité Espagnole
-   Valencia · Soleil · Azulejos · Méditerranée
-   Palette : Or Safran / Rouge Espagnol / Bleu Méditerranéen
-   Typo  : Playfair Display + Source Sans Pro
+   MAXPATRIE — Design Stitch by Florian
+   "Maxpatrie Home - Spanish Heritage"
+   Palette : Deep Navy / Warm Beige / Terracotta / Olive
+   Typo  : Playfair Display (headings) + Source Sans 3 (body)
    ============================================= */
 
 /* --- Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
-/* --- CSS Variables --- */
+/* --- CSS Variables — Stitch Palette --- */
 :root {
-  /* === Palette Espagnole === */
+  /* === Header/Footer — Deep Navy === */
+  --navy:          #032B44;
+  --navy-dark:     #021d2e;
+  --navy-light:    #0a3f5c;
 
-  /* Or safran — dominante CHAUDE, pas rouge */
-  --saffron:            #e8a940;
-  --saffron-dark:       #c98a2a;
-  --saffron-light:      #f5d28a;
-  --saffron-ghost:      rgba(232, 169, 64, 0.10);
+  /* === Fond principal — Warm Beige (choix volontaire de Florian) === */
+  --cream:         #F5F5DC;
+  --cream-light:   #fafaf0;
+  --cream-dark:    #e8e8c8;
 
-  /* Rouge espagnol — ACCENT, ≤ 15% des surfaces */
-  --spain-red:          #c4302b;
-  --spain-red-dark:     #9e1f1b;
-  --spain-red-ghost:    rgba(196, 48, 43, 0.08);
+  /* === Accents === */
+  --terracotta:    #C4734B;
+  --terracotta-dark: #a55a38;
+  --terracotta-ghost: rgba(196, 115, 75, 0.10);
+  --olive:         #8BC34A;
+  --olive-dark:    #6d9e38;
+  --olive-ghost:   rgba(139, 195, 74, 0.10);
 
-  /* Bleu méditerranéen — navigation, liens */
-  --med-blue:           #1a6b8a;
-  --med-blue-dark:      #12526b;
-  --med-blue-ghost:     rgba(26, 107, 138, 0.07);
-  --med-blue-deep:      #0d3442;
+  /* === Legacy variable aliases — HTML inline styles compatibility === */
+  --saffron:            var(--terracotta);
+  --saffron-dark:       var(--terracotta-dark);
+  --saffron-light:      #e8c0a8;
+  --saffron-ghost:      var(--terracotta-ghost);
+  --spain-red:          var(--terracotta);
+  --spain-red-dark:     var(--terracotta-dark);
+  --spain-red-ghost:    var(--terracotta-ghost);
+  --med-blue:           var(--navy);
+  --med-blue-dark:      var(--navy-dark);
+  --med-blue-ghost:     rgba(3, 43, 68, 0.07);
+  --med-blue-deep:      var(--navy-dark);
+  --slate:              var(--navy);
+  --slate-deep:         var(--navy-dark);
+  --slate-light:        var(--navy-light);
+  --slate-surface:      #0a3550;
+  --accent:             var(--terracotta);
+  --accent-dark:        var(--terracotta-dark);
+  --accent-light:       var(--terracotta-ghost);
+  --golden:             var(--terracotta);
+  --golden-dark:        var(--terracotta-dark);
 
-  /* Legacy variable aliases — HTML inline styles */
-  --terracotta:         var(--spain-red);
-  --terracotta-dark:    var(--spain-red-dark);
-  --terracotta-light:   var(--spain-red-ghost);
-  --slate:              var(--med-blue-deep);
-  --slate-deep:         #091f28;
-  --slate-light:        #1e3f50;
-  --slate-surface:      #1a3a48;
-  --accent:             var(--saffron);
-  --accent-dark:        var(--saffron-dark);
-  --accent-light:       var(--saffron-ghost);
-  --golden:             var(--saffron);
-  --golden-dark:        var(--saffron-dark);
-
-  /* Surfaces */
+  /* === Surfaces === */
   --white:              #ffffff;
-  --bg-main:            #fefaf5;   /* blanc cassé très léger, pas crème */
-  --surface:            #f6f1ea;   /* chroma infime */
-  --surface-alt:        #efe8df;
+  --bg-main:            var(--cream);          /* Fond beige chaud */
+  --surface:            var(--cream-dark);      /* Surface alternée */
+  --surface-alt:        #f0ede6;               /* Surface alt — beige très clair */
   --sand:               var(--surface-alt);
   --sand-dark:          #e4dbcf;
-  --cream:              var(--white);
+  --card-bg:            var(--white);
+  --section-alt:        #f0ede6;
 
-  /* Semantics */
-  --charcoal:           #1c1815;
-  --charcoal-light:     #6b6158;
-  --olive:              #5a7a4a;
-  --olive-light:        rgba(90, 122, 74, 0.10);
-  --red-soft:           #d4604a;
+  /* === Semantics === */
+  --text:               #1a1a1a;
+  --text-light:         #555555;
+  --charcoal:           var(--text);
+  --charcoal-light:     var(--text-light);
+  --red-soft:           var(--terracotta);
 
   /* === Typography === */
   --font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
@@ -99,8 +107,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--charcoal);
-  background: var(--bg-main);
+  color: var(--text);
+  background: var(--cream);
   line-height: 1.75;
   overflow-x: hidden;
 }
@@ -110,7 +118,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.15;
-  color: var(--charcoal);
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
@@ -140,17 +148,17 @@ p {
 }
 
 a {
-  color: var(--med-blue);
+  color: var(--navy);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--med-blue-dark);
+  color: var(--navy-light);
 }
 
 strong {
-  color: var(--charcoal);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -171,57 +179,54 @@ strong {
   padding: var(--space-2xl) 0;
 }
 
-/* Alternance : bleu méditerranéen profond pour casser le rythme */
+/* Alternance : fond crème alterné avec blanc */
 .section-alt {
-  background: var(--med-blue-deep);
-  color: rgba(255, 255, 255, 0.85);
+  background: var(--section-alt);
+  color: var(--text);
 }
 
 .section-alt h1,
 .section-alt h2,
 .section-alt h3,
 .section-alt h4 {
-  color: var(--white);
+  color: var(--text);
 }
 
 .section-alt p {
-  color: rgba(255, 255, 255, 0.70);
+  color: var(--text-light);
 }
 
 .section-alt strong {
-  color: var(--white);
+  color: var(--text);
 }
 
 /* =============================================
-   MOTIF AZULEJOS — CSS pur
-   Fond géométrique répétable style carreaux espagnols
+   MOTIF NAVY TEXTURE — CSS pur
+   Fond géométrique répétable style carreaux
    ============================================= */
 .azulejos-bg {
-  background-color: var(--med-blue);
+  background-color: var(--navy);
   background-image:
-    /* Lignes horizontales blanches */
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 38px,
-      rgba(255, 255, 255, 0.08) 38px,
-      rgba(255, 255, 255, 0.08) 40px
+      rgba(255, 255, 255, 0.06) 38px,
+      rgba(255, 255, 255, 0.06) 40px
     ),
-    /* Lignes verticales blanches */
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 38px,
-      rgba(255, 255, 255, 0.08) 38px,
-      rgba(255, 255, 255, 0.08) 40px
+      rgba(255, 255, 255, 0.06) 38px,
+      rgba(255, 255, 255, 0.06) 40px
     ),
-    /* Motif floral croisé — centre des carreaux */
     repeating-conic-gradient(
-      rgba(232, 169, 64, 0.15) 0% 12.5%,
+      rgba(196, 115, 75, 0.12) 0% 12.5%,
       transparent 12.5% 25%
     ) 10px 10px,
     repeating-conic-gradient(
-      rgba(232, 169, 64, 0.15) 0% 12.5%,
+      rgba(196, 115, 75, 0.12) 0% 12.5%,
       transparent 12.5% 25%
     ) 10px 10px;
   background-size:
@@ -233,7 +238,7 @@ strong {
 
 /* Variante plus subtile pour footer */
 .azulejos-subtle {
-  background-color: var(--slate-deep);
+  background-color: var(--navy-dark);
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -246,12 +251,12 @@ strong {
       -45deg,
       transparent,
       transparent 20px,
-      rgba(232, 169, 64, 0.03) 20px,
-      rgba(232, 169, 64, 0.03) 22px
+      rgba(196, 115, 75, 0.03) 20px,
+      rgba(196, 115, 75, 0.03) 22px
     );
 }
 
-/* --- Navbar — Légère, flottante --- */
+/* --- Navbar — Deep Navy, fixed --- */
 .navbar {
   position: fixed;
   top: 0;
@@ -259,15 +264,16 @@ strong {
   right: 0;
   z-index: 1000;
   padding: var(--space-md) 0;
+  background: var(--navy);
   transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(254, 250, 245, 0.90);
+  background: rgba(3, 43, 68, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(26, 107, 138, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar .container {
@@ -280,7 +286,7 @@ strong {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--charcoal);
+  color: var(--white);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -299,7 +305,7 @@ strong {
 }
 
 .nav-links a {
-  color: var(--charcoal-light);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.85rem;
   font-weight: 400;
   font-family: var(--font-body);
@@ -308,7 +314,7 @@ strong {
 }
 
 .nav-links a:hover {
-  color: var(--med-blue);
+  color: var(--white);
 }
 
 .nav-links a::after {
@@ -318,7 +324,7 @@ strong {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--saffron);
+  background: var(--terracotta);
   transition: width var(--transition-base);
   border-radius: 2px;
 }
@@ -328,7 +334,7 @@ strong {
 }
 
 .nav-cta {
-  background: var(--spain-red);
+  background: var(--terracotta);
   color: var(--white) !important;
   padding: 0.45rem 1.1rem;
   border-radius: 6px;
@@ -337,7 +343,8 @@ strong {
 }
 
 .nav-cta:hover {
-  background: var(--spain-red-dark);
+  background: var(--terracotta-dark);
+  color: var(--white) !important;
 }
 
 .nav-cta::after {
@@ -359,7 +366,7 @@ strong {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--charcoal);
+  background: var(--white);
   transition: all var(--transition-base);
 }
 
@@ -376,7 +383,7 @@ strong {
 }
 
 /* =============================================
-   HERO — Dégradé coucher de soleil Valencia
+   HERO — Deep Navy pleine largeur, texte "Valencia"
    ============================================= */
 .hero {
   min-height: 100vh;
@@ -385,38 +392,30 @@ strong {
   position: relative;
   overflow: hidden;
   clip-path: inset(0);
-
-  /* Dégradé coucher de soleil: or → orange doux → rose */
-  background:
-    /* Soleil couchant en haut à droite */
-    radial-gradient(ellipse 70% 80% at 85% 20%, rgba(232, 169, 64, 0.65) 0%, rgba(232, 140, 50, 0.35) 25%, transparent 55%),
-    /* Brume rose au milieu-droite */
-    radial-gradient(ellipse 60% 70% at 70% 50%, rgba(210, 120, 100, 0.25) 0%, transparent 55%),
-    /* Bleu méditerranéen en bas à gauche */
-    radial-gradient(ellipse 55% 55% at 15% 85%, rgba(26, 107, 138, 0.30) 0%, transparent 55%),
-    /* Fond global chaud */
-    linear-gradient(165deg, #f5d28a 0%, #e8a940 20%, #e89440 40%, #d87a55 60%, #c45a4a 80%, #1a6b8a 100%);
+  background: var(--navy);
 }
 
-/* Texture azulejos subtile sur le hero */
+/* Texture subtile sur le hero */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
+    radial-gradient(ellipse 60% 50% at 75% 30%, rgba(196, 115, 75, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(139, 195, 74, 0.05) 0%, transparent 60%),
     repeating-linear-gradient(
       45deg,
       transparent,
       transparent 30px,
-      rgba(255, 255, 255, 0.015) 30px,
-      rgba(255, 255, 255, 0.015) 32px
+      rgba(255, 255, 255, 0.012) 30px,
+      rgba(255, 255, 255, 0.012) 32px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 30px,
-      rgba(255, 255, 255, 0.015) 30px,
-      rgba(255, 255, 255, 0.015) 32px
+      rgba(255, 255, 255, 0.012) 30px,
+      rgba(255, 255, 255, 0.012) 32px
     );
   pointer-events: none;
   z-index: 0;
@@ -427,7 +426,7 @@ strong {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.25) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.30) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -449,11 +448,11 @@ strong {
   margin-bottom: var(--space-md);
   line-height: 1.05;
   font-size: clamp(2.6rem, 7vw, 5rem);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
 }
 
 .hero h1 .highlight {
-  color: var(--saffron-light);
+  color: var(--terracotta);
 }
 
 /* Hero lead — texte introductif, style éditorial */
@@ -495,7 +494,7 @@ strong {
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 600;
-  color: var(--saffron-light);
+  color: var(--terracotta);
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -575,12 +574,12 @@ strong {
 }
 
 .btn-primary {
-  background: var(--spain-red);
+  background: var(--terracotta);
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: var(--spain-red-dark);
+  background: var(--terracotta-dark);
 }
 
 .btn-outline {
@@ -599,15 +598,15 @@ strong {
 .section:not(.section-alt) .btn-outline,
 body > .section .btn-outline,
 section:not(.section-alt) .btn-outline {
-  color: var(--med-blue);
-  border-color: var(--med-blue);
+  color: var(--navy);
+  border-color: var(--navy);
 }
 
 .section:not(.section-alt) .btn-outline:hover,
 section:not(.section-alt) .btn-outline:hover {
-  background: var(--med-blue);
+  background: var(--navy);
   color: var(--white);
-  border-color: var(--med-blue);
+  border-color: var(--navy);
 }
 
 .btn-sm {
@@ -616,20 +615,20 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 /* =============================================
-   CARDS — Ni ghost, ni shadow+lourd
-   Fond blanc, bordure fine, border-radius 8px
+   CARDS — Fond blanc, bordure fine, ombre légère
    ============================================= */
 .card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 8px;
   padding: var(--space-lg);
-  transition: background var(--transition-base), transform var(--transition-fast);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-fast), box-shadow var(--transition-base);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .card:hover {
-  background: var(--bg-main);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
 /* Variation par position */
@@ -642,8 +641,9 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .grid-3 > .card:nth-child(3n) {
-  background: var(--surface);
+  background: var(--cream-dark);
   border-color: transparent;
+  box-shadow: none;
 }
 
 .grid-3 > .card:nth-child(3n):hover {
@@ -652,25 +652,25 @@ section:not(.section-alt) .btn-outline:hover {
 
 /* Dans section-alt, les cartes s'adaptent */
 .section-alt .card {
-  background: var(--slate-light);
-  border-color: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.82);
+  background: var(--white);
+  border-color: rgba(0, 0, 0, 0.06);
+  color: var(--text);
 }
 
 .section-alt .card:hover {
-  background: var(--slate-surface);
+  background: var(--cream-light);
 }
 
 .section-alt .card h3 {
-  color: var(--white);
+  color: var(--text);
 }
 
 .section-alt .card p {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-light);
 }
 
 .section-alt .grid-3 > .card:nth-child(3n) {
-  background: var(--slate-surface);
+  background: var(--cream-dark);
   border-color: transparent;
 }
 
@@ -699,7 +699,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .card p {
-  color: var(--charcoal-light);
+  color: var(--text-light);
   font-size: 0.9rem;
   margin-bottom: 0;
 }
@@ -723,7 +723,7 @@ section:not(.section-alt) .btn-outline:hover {
   gap: var(--space-lg);
 }
 
-/* --- Section Headers — épuré, pas d'eyebrows uppercase --- */
+/* --- Section Headers — épuré --- */
 .section-header {
   text-align: left;
   margin-bottom: var(--space-xl);
@@ -733,7 +733,7 @@ section:not(.section-alt) .btn-outline:hover {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 400;
-  color: var(--spain-red);
+  color: var(--terracotta);
   margin-bottom: var(--space-sm);
   text-transform: none;
   letter-spacing: 0;
@@ -743,7 +743,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .section-header .badge {
-  color: var(--saffron);
+  color: var(--terracotta);
 }
 
 .section-header h2 {
@@ -751,20 +751,20 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-header p {
-  color: var(--charcoal-light);
+  color: var(--text-light);
   max-width: 560px;
   margin: 0;
 }
 
 .section-alt .section-header p {
-  color: rgba(255, 255, 255, 0.60);
+  color: var(--text-light);
 }
 
 .badge {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 400;
-  color: var(--spain-red);
+  color: var(--terracotta);
   text-transform: none;
   letter-spacing: 0;
   background: none;
@@ -787,7 +787,7 @@ section:not(.section-alt) .btn-outline:hover {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(3, 43, 68, 0.20);
 }
 
 .timeline-item {
@@ -804,19 +804,20 @@ section:not(.section-alt) .btn-outline:hover {
 .timeline-content {
   width: 45%;
   padding: var(--space-lg);
-  background: var(--slate-light);
+  background: var(--white);
   border-radius: 8px;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .timeline-content h3 {
-  color: var(--white);
+  color: var(--text);
 }
 
 .timeline-content p {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-light);
 }
 
 .timeline-dot {
@@ -826,16 +827,16 @@ section:not(.section-alt) .btn-outline:hover {
   transform: translateX(-50%);
   width: 10px;
   height: 10px;
-  background: var(--saffron);
+  background: var(--terracotta);
   border-radius: 50%;
   z-index: 1;
-  box-shadow: 0 0 0 4px rgba(232, 169, 64, 0.20);
+  box-shadow: 0 0 0 4px rgba(196, 115, 75, 0.20);
 }
 
 .timeline-date {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--saffron-light);
+  color: var(--terracotta);
   text-transform: none;
   letter-spacing: 0.02em;
   margin-bottom: var(--space-sm);
@@ -846,13 +847,13 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--white);
   border-radius: 8px;
   padding: var(--space-xl);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .section-alt .calculator {
-  background: var(--slate-light);
-  border-color: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.85);
+  background: var(--white);
+  border-color: rgba(0, 0, 0, 0.06);
+  color: var(--text);
 }
 
 .calc-row {
@@ -860,24 +861,24 @@ section:not(.section-alt) .btn-outline:hover {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-md) 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .calc-total-row {
   border-bottom: none;
   font-weight: 700;
   font-size: 1.15rem;
-  border-top: 2px solid var(--saffron);
+  border-top: 2px solid var(--terracotta);
   margin-top: var(--space-sm);
   padding-top: var(--space-md);
 }
 
 .section-alt .calc-row {
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
 }
 
 .section-alt .calc-total-row {
-  border-top-color: rgba(232, 169, 64, 0.30);
+  border-top-color: var(--terracotta);
 }
 
 .calc-label {
@@ -888,11 +889,11 @@ section:not(.section-alt) .btn-outline:hover {
 
 .calc-value {
   font-weight: 600;
-  color: var(--spain-red);
+  color: var(--terracotta);
 }
 
 .section-alt .calc-value {
-  color: var(--saffron);
+  color: var(--terracotta);
 }
 
 .calc-scenario {
@@ -904,7 +905,7 @@ section:not(.section-alt) .btn-outline:hover {
 .calc-scenario button {
   flex: 1;
   padding: 0.55rem;
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(0, 0, 0, 0.10);
   background: transparent;
   border-radius: 6px;
   cursor: pointer;
@@ -915,19 +916,19 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .calc-scenario button {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.70);
+  border-color: rgba(0, 0, 0, 0.10);
+  color: var(--text-light);
 }
 
 .calc-scenario button.active {
-  border-color: var(--spain-red);
-  background: var(--spain-red);
+  border-color: var(--terracotta);
+  background: var(--terracotta);
   color: var(--white);
 }
 
 .section-alt .calc-scenario button.active {
-  border-color: var(--spain-red);
-  background: var(--spain-red);
+  border-color: var(--terracotta);
+  background: var(--terracotta);
 }
 
 /* =============================================
@@ -950,13 +951,13 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--white);
   border-radius: 8px;
   padding: var(--space-xl);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
 .epargne-label {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   margin-bottom: var(--space-xs);
   text-transform: none;
   letter-spacing: 0;
@@ -966,7 +967,7 @@ section:not(.section-alt) .btn-outline:hover {
   font-family: var(--font-heading);
   font-size: 2.8rem;
   font-weight: 700;
-  color: var(--saffron);
+  color: var(--terracotta);
   line-height: 1;
   margin-bottom: var(--space-md);
   letter-spacing: -0.03em;
@@ -974,20 +975,20 @@ section:not(.section-alt) .btn-outline:hover {
 
 .epargne-detail {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   line-height: 1.6;
   margin-bottom: 0;
 }
 
 .budget-note {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   line-height: 1.7;
   margin-bottom: 0;
 }
 
 .budget-note a {
-  color: var(--spain-red);
+  color: var(--terracotta);
   font-weight: 600;
 }
 
@@ -996,34 +997,34 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--white);
   border-radius: 8px;
   padding: var(--space-lg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: transform var(--transition-fast), box-shadow var(--transition-base);
 }
 
 .quartier-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .quartier-card.featured {
-  border-color: var(--saffron);
+  border-color: var(--terracotta);
   border-width: 2px;
-  box-shadow: 0 2px 12px rgba(232, 169, 64, 0.12);
+  box-shadow: 0 2px 12px rgba(196, 115, 75, 0.12);
 }
 
 .section-alt .quartier-card {
-  background: var(--slate-light);
-  border-color: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.82);
+  background: var(--white);
+  border-color: rgba(0, 0, 0, 0.06);
+  color: var(--text);
 }
 
 .section-alt .quartier-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
 }
 
 .section-alt .quartier-card.featured {
-  border-color: var(--saffron);
-  box-shadow: 0 2px 12px rgba(232, 169, 64, 0.10);
+  border-color: var(--terracotta);
+  box-shadow: 0 2px 12px rgba(196, 115, 75, 0.12);
 }
 
 .quartier-card h3 {
@@ -1031,7 +1032,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .quartier-card h3 {
-  color: var(--white);
+  color: var(--text);
 }
 
 /* Quartier header */
@@ -1045,8 +1046,8 @@ section:not(.section-alt) .btn-outline:hover {
 .quartier-badge {
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--spain-red);
-  background: var(--spain-red-ghost);
+  color: var(--terracotta);
+  background: var(--terracotta-ghost);
   padding: 0.15rem 0.55rem;
   border-radius: 4px;
   text-transform: none;
@@ -1054,20 +1055,20 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .quartier-badge {
-  color: var(--saffron);
-  background: var(--saffron-ghost);
+  color: var(--terracotta);
+  background: var(--terracotta-ghost);
 }
 
 /* Quartier description */
 .quartier-desc {
   font-size: 0.88rem;
   line-height: 1.65;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   margin-bottom: var(--space-md);
 }
 
 .section-alt .quartier-desc {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-light);
 }
 
 /* Quartier filter */
@@ -1081,7 +1082,7 @@ section:not(.section-alt) .btn-outline:hover {
 
 .quartier-filter button {
   padding: 0.45rem 1.1rem;
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(0, 0, 0, 0.10);
   background: transparent;
   border-radius: 6px;
   cursor: pointer;
@@ -1089,17 +1090,17 @@ section:not(.section-alt) .btn-outline:hover {
   font-size: 0.82rem;
   transition: all var(--transition-fast);
   font-family: var(--font-body);
-  color: var(--charcoal-light);
+  color: var(--text-light);
 }
 
 .section-alt .quartier-filter button {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.10);
+  color: var(--text-light);
 }
 
 .quartier-filter button.active {
-  border-color: var(--spain-red);
-  background: var(--spain-red);
+  border-color: var(--terracotta);
+  background: var(--terracotta);
   color: var(--white);
 }
 
@@ -1113,14 +1114,14 @@ section:not(.section-alt) .btn-outline:hover {
 .quartier-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--spain-red);
+  color: var(--terracotta);
   margin-bottom: var(--space-md);
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
 }
 
 .section-alt .quartier-price {
-  color: var(--saffron);
+  color: var(--terracotta);
 }
 
 .quartier-meta {
@@ -1131,29 +1132,29 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .meta-tag {
-  background: var(--surface);
+  background: var(--cream-dark);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-size: 0.72rem;
   font-weight: 400;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   text-transform: none;
   letter-spacing: 0;
 }
 
 .section-alt .meta-tag {
-  background: var(--slate-surface);
-  color: rgba(255, 255, 255, 0.60);
+  background: var(--cream-dark);
+  color: var(--text-light);
 }
 
 .meta-tag.good {
-  background: var(--olive-light);
-  color: var(--olive);
+  background: var(--olive-ghost);
+  color: var(--olive-dark);
 }
 
 .meta-tag.warn {
-  background: var(--saffron-ghost);
-  color: var(--saffron-dark);
+  background: var(--terracotta-ghost);
+  color: var(--terracotta-dark);
 }
 
 .quartier-score {
@@ -1176,13 +1177,13 @@ section:not(.section-alt) .btn-outline:hover {
 
 .score-label {
   font-size: 0.6rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   text-transform: none;
   letter-spacing: 0;
 }
 
 .section-alt .score-label {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-light);
 }
 
 /* =============================================
@@ -1201,7 +1202,7 @@ section:not(.section-alt) .btn-outline:hover {
 .editorial-intro p {
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   margin-bottom: 0;
 }
 
@@ -1214,17 +1215,17 @@ section:not(.section-alt) .btn-outline:hover {
 
 .editorial-col h3 {
   margin-bottom: var(--space-md);
-  color: var(--spain-red);
+  color: var(--terracotta);
 }
 
 .editorial-col p {
   font-size: 0.95rem;
   line-height: 1.75;
-  color: var(--charcoal-light);
+  color: var(--text-light);
 }
 
 .editorial-full-bleed {
-  background: var(--surface);
+  background: var(--cream-dark);
   padding: var(--space-xl) 0;
   border-radius: 8px;
   margin-top: var(--space-lg);
@@ -1242,14 +1243,14 @@ section:not(.section-alt) .btn-outline:hover {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   line-height: 1.45;
-  color: var(--charcoal);
+  color: var(--text);
   margin-bottom: var(--space-sm);
   font-weight: 400;
 }
 
 .editorial-quote-attribution {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   margin-bottom: 0;
 }
 
@@ -1275,29 +1276,30 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--white);
   border-radius: 8px;
   padding: var(--space-xl) var(--space-lg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
   display: block;
-  color: var(--charcoal);
+  color: var(--text);
   text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .guide-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  border-color: var(--saffron);
-  color: var(--charcoal);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-color: var(--terracotta);
+  color: var(--text);
 }
 
 .guide-card h3 {
   font-size: 1.2rem;
   margin-bottom: var(--space-sm);
-  color: var(--charcoal);
+  color: var(--text);
 }
 
 .guide-card p {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   line-height: 1.6;
   margin-bottom: var(--space-sm);
 }
@@ -1305,25 +1307,25 @@ section:not(.section-alt) .btn-outline:hover {
 .guide-link {
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--spain-red);
+  color: var(--terracotta);
   transition: color var(--transition-fast);
 }
 
 .guide-card:hover .guide-link {
-  color: var(--spain-red-dark);
+  color: var(--terracotta-dark);
 }
 
 /* Guide list */
 .guide-list {
   background: var(--white);
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
 }
 
 .guide-list-header {
   padding: var(--space-lg) var(--space-lg) var(--space-sm);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .guide-list-header h3 {
@@ -1332,7 +1334,7 @@ section:not(.section-alt) .btn-outline:hover {
 
 .guide-list-header p {
   font-size: 0.85rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   margin-bottom: 0;
 }
 
@@ -1345,10 +1347,10 @@ section:not(.section-alt) .btn-outline:hover {
   display: flex;
   flex-direction: column;
   padding: var(--space-md) var(--space-lg);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: background var(--transition-fast);
   text-decoration: none;
-  color: var(--charcoal);
+  color: var(--text);
 }
 
 .guide-list-item:last-child {
@@ -1356,8 +1358,8 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .guide-list-item:hover {
-  background: var(--bg-main);
-  color: var(--charcoal);
+  background: var(--cream-light);
+  color: var(--text);
 }
 
 .guide-list-title {
@@ -1368,7 +1370,7 @@ section:not(.section-alt) .btn-outline:hover {
 
 .guide-list-desc {
   font-size: 0.82rem;
-  color: var(--charcoal-light);
+  color: var(--text-light);
   line-height: 1.5;
 }
 
@@ -1392,7 +1394,7 @@ section:not(.section-alt) .btn-outline:hover {
    SECTION CTA — Final call-to-action
    ============================================= */
 .section-cta {
-  background: var(--med-blue);
+  background: var(--navy);
   color: var(--white);
   text-align: center;
   padding: var(--space-2xl) 0;
@@ -1412,23 +1414,17 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-cta .btn-primary {
-  background: var(--saffron);
-  color: var(--charcoal);
+  background: var(--terracotta);
+  color: var(--white);
 }
 
 .section-cta .btn-primary:hover {
-  background: var(--saffron-dark);
+  background: var(--terracotta-dark);
 }
 
-/* --- Footer — Bleu profond, azulejos subtil --- */
+/* --- Footer — Deep Navy --- */
 .footer {
-  background: var(--slate-deep);
-  color: rgba(255, 255, 255, 0.62);
-  padding: var(--space-2xl) 0 var(--space-lg);
-}
-
-.footer {
-  background-color: var(--slate-deep);
+  background-color: var(--navy-dark);
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -1441,8 +1437,8 @@ section:not(.section-alt) .btn-outline:hover {
       -45deg,
       transparent,
       transparent 40px,
-      rgba(232, 169, 64, 0.02) 40px,
-      rgba(232, 169, 64, 0.02) 42px
+      rgba(196, 115, 75, 0.02) 40px,
+      rgba(196, 115, 75, 0.02) 42px
     );
   color: rgba(255, 255, 255, 0.62);
   padding: var(--space-2xl) 0 var(--space-lg);
@@ -1471,7 +1467,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .footer a:hover {
-  color: var(--saffron-light);
+  color: var(--terracotta);
 }
 
 .footer p {
@@ -1504,7 +1500,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .content-header {
-  background: var(--med-blue);
+  background: var(--navy);
   padding: var(--space-2xl) 0 var(--space-xl);
   margin-bottom: var(--space-xl);
   color: var(--white);
@@ -1519,7 +1515,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .content-header .badge {
-  color: var(--saffron-light);
+  color: var(--terracotta);
 }
 
 .content-body {
@@ -1532,13 +1528,13 @@ section:not(.section-alt) .btn-outline:hover {
   margin-bottom: var(--space-md);
   padding-bottom: 0;
   border-bottom: none;
-  color: var(--charcoal);
+  color: var(--text);
 }
 
 .content-body h3 {
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
-  color: var(--spain-red);
+  color: var(--terracotta);
 }
 
 .content-body ul,
@@ -1553,20 +1549,20 @@ section:not(.section-alt) .btn-outline:hover {
 
 .content-body blockquote {
   border-left: none;
-  border: 1px solid rgba(196, 48, 43, 0.12);
+  border: 1px solid rgba(196, 115, 75, 0.12);
   padding: var(--space-md) var(--space-lg);
   margin: var(--space-lg) 0;
-  background: var(--spain-red-ghost);
+  background: var(--terracotta-ghost);
   border-radius: 8px;
   font-style: italic;
 }
 
 .content-body .highlight-box {
-  background: var(--med-blue-ghost);
+  background: rgba(3, 43, 68, 0.05);
   border-radius: 8px;
   padding: var(--space-lg);
   margin: var(--space-lg) 0;
-  border: 1px solid rgba(26, 107, 138, 0.10);
+  border: 1px solid rgba(3, 43, 68, 0.10);
   border-left: none;
 }
 
@@ -1646,10 +1642,6 @@ section:not(.section-alt) .btn-outline:hover {
   .budget-layout {
     grid-template-columns: 1fr;
   }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
@@ -1706,11 +1698,11 @@ section:not(.section-alt) .btn-outline:hover {
     height: 100vh;
     width: 280px;
     flex-direction: column;
-    background: var(--white);
+    background: var(--navy);
     padding: 6rem var(--space-lg) var(--space-lg);
     gap: var(--space-md);
     transition: right var(--transition-base);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
     z-index: 999;
   }
 

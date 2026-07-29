@@ -17,6 +17,427 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Stitch Design Overrides — Header Navy + Hero Valencia + Cultural Sections -->
+  <style>
+    /* === STITCH DESIGN SYSTEM === */
+    :root {
+      --stitch-navy: #032B44;
+      --stitch-navy-dark: #021e30;
+      --stitch-valencia-orange: #e87722;
+      --stitch-med-sea: #1a8fa0;
+      --stitch-warm-cream: #fef9f2;
+      --stitch-sand: #f5e6d3;
+      --stitch-terracotta: #c67b4b;
+    }
+
+    /* --- NAV HEADER NAVY --- */
+    .navbar {
+      background: var(--stitch-navy);
+      padding: 0.6rem 0;
+      border-bottom: 2px solid rgba(232,119,34,0.25);
+    }
+    .navbar.scrolled {
+      background: rgba(3,43,68,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.4rem 0;
+      border-bottom: 2px solid rgba(232,119,34,0.3);
+    }
+    .navbar .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .navbar .nav-logo .flag {
+      font-size: 1.1rem;
+      margin-right: 0.3rem;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #e8a940;
+    }
+    .nav-toggle span {
+      background: #ffffff;
+    }
+
+    /* --- HERO VALENCIA --- */
+    .hero-valencia {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(160deg, #032B44 0%, #0a4a6e 25%, #1a6b8a 45%, #d4874a 72%, #e8a850 88%, #f5c97e 100%);
+    }
+    .hero-valencia::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 80% 85%, rgba(232,168,80,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 30%, rgba(255,255,255,0.10) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Azulejos pattern overlay */
+    .hero-valencia::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
+      background: repeating-linear-gradient(45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 20px),
+                  repeating-linear-gradient(-45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 20px);
+    }
+    .hero-valencia .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+    .hero-valencia .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      padding: 0.4rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-valencia h1 {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      letter-spacing: -0.02em;
+    }
+    .hero-valencia .hero-subtitle {
+      font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    .hero-valencia .hero-lead {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 650px;
+      margin: 0 auto 1rem;
+      line-height: 1.7;
+    }
+    .hero-valencia .hero-context {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 620px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.65;
+    }
+    .hero-valencia .hero-countdown {
+      margin-bottom: 2rem;
+    }
+    .hero-valencia .countdown-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+    }
+    .hero-valencia .countdown-value {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0.2rem;
+    }
+    .hero-valencia .btn-primary {
+      display: inline-block;
+      background: #e8a940;
+      color: #032B44;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.9rem 2.6rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(232,169,64,0.35);
+    }
+    .hero-valencia .btn-primary:hover {
+      background: #f0b855;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,169,64,0.45);
+      color: #032B44;
+    }
+    .hero-valencia .btn-outline-white {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.45);
+      transition: all 0.25s ease;
+    }
+    .hero-valencia .btn-outline-white:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* --- CULTURAL SECTIONS --- */
+    .section-culture {
+      padding: var(--space-2xl) 0;
+    }
+    .culture-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .culture-header .section-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .culture-header h2 {
+      font-family: var(--font-heading);
+      color: var(--charcoal);
+    }
+    .culture-header .section-underline {
+      width: 70px;
+      height: 3px;
+      background: var(--saffron);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Art de Vivre — warm cream bg */
+    .section-cream {
+      background: var(--stitch-warm-cream);
+    }
+
+    /* Heritage — med-blue-deep bg */
+    .section-heritage {
+      background: var(--med-blue-deep);
+      color: rgba(255,255,255,0.85);
+    }
+    .section-heritage h2,
+    .section-heritage h3 {
+      color: #ffffff;
+    }
+    .section-heritage .section-underline {
+      background: var(--saffron);
+    }
+
+    /* Culture Cards */
+    .culture-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    .culture-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(232,169,64,0.12);
+    }
+    .culture-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+    .culture-card .card-emoji {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .culture-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      color: var(--charcoal);
+    }
+    .culture-card p {
+      font-size: 0.95rem;
+      color: var(--charcoal-light);
+      line-height: 1.65;
+    }
+
+    /* Heritage gallery */
+    .heritage-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    .heritage-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .heritage-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(232,169,64,0.45);
+    }
+    .heritage-card-visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .heritage-card-visual.azulejos-bg-subtle {
+      background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(232,169,64,0.1) 14px, rgba(232,169,64,0.1) 16px),
+                  repeating-linear-gradient(-45deg, transparent, transparent 14px, rgba(232,169,64,0.1) 14px, rgba(232,169,64,0.1) 16px);
+    }
+    .heritage-card-visual.ciudad-bg {
+      background: linear-gradient(135deg, #1a6b8a 0%, #0d4155 40%, #4a9db5 70%, #e8f4f8 100%);
+    }
+    .heritage-card-visual.historico-bg {
+      background: linear-gradient(160deg, #c67b4b 0%, #d4a06a 40%, #f5e6d3 75%, #ffffff 100%);
+    }
+    .heritage-card-body {
+      padding: 1.5rem 1.8rem;
+    }
+    .heritage-card-body h3 {
+      font-family: var(--font-heading);
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .heritage-card-body p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Traditions */
+    .traditions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    .tradition-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 2rem 1.6rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border-left: 4px solid var(--saffron);
+      transition: transform 0.3s ease;
+    }
+    .tradition-card:hover {
+      transform: translateY(-2px);
+    }
+    .tradition-card .trad-icon {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .tradition-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+    .tradition-card p {
+      font-size: 0.92rem;
+      color: var(--charcoal-light);
+      line-height: 1.6;
+    }
+
+    /* --- FOOTER NAVY --- */
+    .footer {
+      background: var(--stitch-navy);
+      color: rgba(255,255,255,0.75);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer h4 {
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s ease;
+    }
+    .footer a:hover {
+      color: var(--saffron);
+    }
+    .footer-brand p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.92rem;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.2rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .footer-map-reference {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-map-reference span {
+      font-size: 1.5rem;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-valencia h1 {
+        font-size: 2.8rem;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      .culture-cards,
+      .heritage-gallery,
+      .traditions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -36,178 +457,267 @@
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
+  <!-- ===== NAVIGATION — HEADER NAVY ===== -->
   <nav class="navbar" role="navigation">
     <div class="container">
-      <a href="/" class="nav-logo">🇪🇸 Maxpatrie</a>
+      <a href="/" class="nav-logo"><span class="flag">🇪🇸</span>MAXPATRIE</a>
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="#histoire">Pourquoi</a></li>
-        <li><a href="#timeline">Le plan</a></li>
-        <li><a href="#budget">Budget</a></li>
-        <li><a href="#quartiers">Quartiers</a></li>
-        <li><a href="#guide">Guide</a></li>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#art-de-vivre">Activités</a></li>
+        <li><a href="#guide">Guide de Voyage</a></li>
+        <li><a href="pages/ressources.html">Blog</a></li>
+        <li><a href="pages/ressources.html">Contact</a></li>
       </ul>
     </div>
   </nav>
   <div class="nav-overlay"></div>
 
-  <!-- ===== HERO ===== -->
-  <header class="hero" id="accueil">
-    <!-- Azulejos tile pattern overlay -->
-    <div aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.06; pointer-events: none; z-index: 0; background: repeating-linear-gradient(45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 24px), repeating-linear-gradient(-45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 24px), repeating-linear-gradient(0deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 24px), repeating-linear-gradient(90deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 24px);"></div>
-    <!-- Sunset gradient overlay -->
-    <div aria-hidden="true" style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; pointer-events: none; z-index: 0; background: linear-gradient(to top, rgba(232,168,80,0.18) 0%, rgba(184,69,46,0.08) 40%, transparent 100%);"></div>
-    <div class="container">
-      <div class="hero-content">
-        <h1>Valencia. 🇪🇸</h1>
+  <!-- ===== HERO — VALENCIA ===== -->
+  <header class="hero-valencia" id="accueil">
+    <div class="hero-inner">
+      <div class="hero-badge">🇪🇸 Art de Vivre & Culture Espagnole</div>
+      <h1>Valencia</h1>
+      <p class="hero-subtitle">Art de Vivre &amp; Culture Espagnole</p>
 
-        <p class="hero-lead">
-          ☀️ C'est pas un choix rationnel. C'est la lumière, la mer à 15 bornes, les gamins qui jouent sur la place de Benimaclet pendant que tu bois un vermouth. J'y suis passé dix fois pour le boulot, et à chaque fois je repartais avec cette boule au ventre.
-        </p>
+      <p class="hero-lead">
+        ☀️ C'est pas un choix rationnel. C'est la lumière, la mer à 15 bornes, les gamins qui jouent sur la place de Benimaclet pendant que tu bois un vermouth. J'y suis passé dix fois pour le boulot, et à chaque fois je repartais avec cette boule au ventre.
+      </p>
 
-        <p class="hero-lead">
-          Alors cette fois, on bouge. Pour de vrai. Avec ma femme, nos trois gamins, et un plan en béton. Ou presque.
-        </p>
+      <p class="hero-context">
+        J'm'appelle Florian. 35 ans, logisticien, 12 piges dans le métier. On met <strong style="color:#fff;">40&nbsp;000&nbsp;€</strong> de côté, on apprend l'espagnol, et on vise l'été 2028. Ce site, c'est notre journal de bord. Tout ce que j'apprends, je le pose ici. Si t'as le même projet, sers-toi. 🌊
+      </p>
 
-        <p class="hero-context">
-          J'm'appelle Florian. 35 ans, logisticien, 12 piges dans le métier. On met <strong>40&nbsp;000&nbsp;€</strong> de côté, on apprend l'espagnol, et on vise l'été 2028. Ce site, c'est notre journal de bord. Tout ce que j'apprends, je le pose ici. Si t'as le même projet, sers-toi. 🌊
-        </p>
+      <div class="hero-countdown">
+        <span class="countdown-label">Départ dans</span>
+        <span class="countdown-value months" data-target="22">—</span>
+        <span class="countdown-label">mois et</span>
+        <span class="countdown-value days-remaining">—</span>
+        <span class="countdown-label">jours</span>
+      </div>
 
-        <div class="hero-countdown">
-          <span class="countdown-label">Départ dans</span>
-          <span class="countdown-value months" data-target="22">—</span>
-          <span class="countdown-label">mois et</span>
-          <span class="countdown-value days-remaining">—</span>
-          <span class="countdown-label">jours</span>
-        </div>
-
-        <div class="hero-cta">
-          <a href="#guide" class="btn btn-primary">Voir le guide complet</a>
-          <a href="#histoire" class="btn btn-outline">Pourquoi on fait ça ↓</a>
-        </div>
+      <div class="hero-cta-group">
+        <a href="#art-de-vivre" class="btn btn-primary">Découvrir</a>
+        <a href="#guide" class="btn-outline-white">Voir le guide complet</a>
       </div>
     </div>
   </header>
 
-  <!-- ===== POURQUOI VALENCIA ===== -->
-  <section class="section" id="histoire">
-    <div class="container-narrow">
-      <div class="editorial-intro">
-        <h2>T'as déjà eu ce truc où tu te sens plus chez toi ailleurs que chez toi&nbsp;? 🍊</h2>
-        <p>
-          Moi, c'est Valencia. La première fois que j'y ai mis les pieds, c'était pour le taf. Un entrepôt logistique dans la zone du port, début janvier, il faisait 18 degrés. Je suis rentré à Lille le soir même — il faisait 2°C et il pleuvait. J'ai serré les dents. Je me suis dit : un jour.
-        </p>
-        <p>
-          Ce « un jour », ça fait six ans qu'il traîne. Six ans à checker les annonces Idealista le dimanche soir. Six ans à comparer le prix des cantines scolaires. Six ans à me dire « on est bien en France quand même ». Sauf que non, on est pas si bien.
-        </p>
-      </div>
+  <!-- ================================================================ -->
+  <!-- SECTION 1 — ART DE VIVRE & CULTURE ESPAGNOLE -->
+  <!-- ================================================================ -->
+  <section class="section-culture section-cream" id="art-de-vivre">
+    <div class="culture-header">
+      <span class="section-icon">🍊</span>
+      <h2>Art de Vivre &amp; Culture Espagnole</h2>
+      <div class="section-underline"></div>
     </div>
 
-    <!-- Split : ce qu'on quitte / ce qu'on gagne -->
-    <div class="container">
-      <div class="editorial-split">
-        <div class="editorial-col fade-in">
-          <h3>Ce qu'on laisse derrière</h3>
-          <p>
-            Un pavillon propre à la frontière belge. Le boulot stable. La famille à 20 minutes. La sécu, la CAF, les repères. C'est pas rien. Ma femme a grandi ici. Les gamins ont leurs copains, leur école, leurs habitudes.
-          </p>
-          <p>
-            Mais y'a aussi ce qu'on laisse sans regret : les mois de novembre sous la grisaille, le pouvoir d'achat qui fond comme neige au soleil, l'impression de courir un marathon où la ligne d'arrivée recule tous les ans.
-          </p>
-        </div>
-        <div class="editorial-col fade-in">
-          <h3>Ce qu'on va chercher</h3>
-          <p>
-            <strong>300 jours de soleil par an.</strong> Pas une pub, un fait. Les hivers à 15°C, les étés où tu crèves pas parce que la brise marine fait le taf. La plage de la Malvarrosa à 15 minutes, la Patacona pour les dimanches paella 🥘 les pieds dans le sable 🏖️, le Parc Naturel de l'Albufera à 20 bornes pour voir les flamants roses avec les gamins le dimanche.
-          </p>
-          <p>
-            <strong>Respirer financièrement.</strong> Un T4 avec balcon dans un quartier sympa pour 1&nbsp;100 € par mois. Le menu du midi à 12&nbsp;€ chez Paco, Calle del Músico Peydró. La cantine scolaire à 4,50&nbsp;€ par gamin. Des trucs simples qui changent tout en fin de mois.
-          </p>
-        </div>
-      </div>
+    <div class="container-narrow" style="text-align:center; margin-bottom:2.5rem;">
+      <p style="font-size:1.1rem; color:var(--charcoal-light); max-width:650px; margin:0 auto;">
+        L'Espagne, c'est pas juste un pays. C'est un rythme. Celui des terrasses qui s'animent à 21h, des marchés qui sentent le jasmin et le paprika, des siestes qui sont pas une blague mais un art de vivre. Voilà ce qui nous attire.
+      </p>
     </div>
 
-    <!-- Full bleed : le détail qui tue -->
-    <div class="editorial-full-bleed fade-in">
-      <div class="container-narrow">
-        <blockquote class="editorial-quote">
-          <p>
-            « Et puis y'a le port. 5<sup>e</sup> d'Europe. Le hub méditerranéen de MSC. Des entrepôts logistiques qui poussent comme des champignons. Pour un mec comme moi qui fait de la supply chain depuis 12 ans, c'est pas juste un décor — c'est un terrain de jeu. Et puis y'a les Fallas en mars, les rues qui sentent la poudre et les oranges, la ville entière qui devient un feu d'artifice géant. Essaie de trouver ça à Lille. »
-          </p>
-        </blockquote>
-        <p class="editorial-quote-attribution">— Moi, en boucle, à chaque fois que quelqu'un me dit « mais t'es sûr ? »</p>
+    <div class="culture-cards">
+      <div class="culture-card fade-in">
+        <span class="card-emoji">🥘</span>
+        <h3>La Paella, un Rituel</h3>
+        <p>
+          Pas celle du resto à touristes de la Plaza de la Reina. La vraie. Celle du dimanche midi en famille, cuite au feu de bois d'oranger sur la terrasse. Le riz <em>socarrat</em> qui gratte au fond de la poêle, le poulet de corral, les garrofons. Chez nous, la paella c'est sacré — et à Valencia, c'est une religion.
+        </p>
+      </div>
+
+      <div class="culture-card fade-in">
+        <span class="card-emoji">🍊</span>
+        <h3>Le Parfum des Orangers</h3>
+        <p>
+          En mars, toute la ville sent la fleur d'oranger. Les rues de Ruzafa, les patios de Patraix, les allées du Turia — partout ce parfum sucré qui te rappelle que t'es pas à Lille. Les Valenciens cueillent les oranges directement dans la rue. Essaie de faire ça dans le Nord.
+        </p>
+      </div>
+
+      <div class="culture-card fade-in">
+        <span class="card-emoji">🌊</span>
+        <h3>La Méditerranée au Quotidien</h3>
+        <p>
+          La Malvarrosa à 15 minutes en bus. La Patacona pour les dimanches farniente. L'Albufera à 20 bornes — un coucher de soleil sur la lagune, des flamants roses, et ce silence que tu trouves nulle part ailleurs. La mer, c'est pas un « plus » à Valencia : c'est le décor permanent.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== TIMELINE ===== -->
-  <section class="section section-alt" id="timeline">
-    <div class="container-narrow">
-      <div class="editorial-intro">
-        <h2>Ok, mais concrètement, on fait quoi&nbsp;?</h2>
-        <p>
-          Deux ans. C'est ce qu'on s'est donné. Pas trop long pour pas perdre le feu, pas trop court pour pas finir en burn-out. Voilà les quatre temps du match.
-        </p>
+  <!-- ================================================================ -->
+  <!-- SECTION 2 — HERITAGE & ARCHITECTURE -->
+  <!-- ================================================================ -->
+  <section class="section-culture section-heritage" id="heritage">
+    <div class="culture-header">
+      <span class="section-icon">🏛️</span>
+      <h2 style="color:#fff;">Heritage &amp; Architecture</h2>
+      <div class="section-underline" style="background:var(--saffron);"></div>
+    </div>
+
+    <div class="container-narrow" style="text-align:center; margin-bottom:2.5rem;">
+      <p style="font-size:1.1rem; color:rgba(255,255,255,0.65); max-width:650px; margin:0 auto;">
+        Valencia, c'est 2000 ans d'histoire qui cohabitent avec une architecture futuriste. La ville où les remparts romains côtoient Calatrava, où les azulejos racontent des siècles de tradition artisanale.
+      </p>
+    </div>
+
+    <div class="heritage-gallery">
+      <div class="heritage-card fade-in">
+        <div class="heritage-card-visual ciudad-bg">🐋</div>
+        <div class="heritage-card-body">
+          <h3>Ciudad de las Artes y las Ciencias</h3>
+          <p>
+            Le chef-d'œuvre de Calatrava. Six structures blanches qui semblent flotter sur l'eau. L'Hemisfèric, ce cinéma IMAX en forme d'œil géant. L'Oceanogràfic, le plus grand aquarium d'Europe. Même après dix visites, tu restes bouche bée.
+          </p>
+        </div>
+      </div>
+
+      <div class="heritage-card fade-in">
+        <div class="heritage-card-visual azulejos-bg-subtle">🎨</div>
+        <div class="heritage-card-body">
+          <h3>L'Art des Azulejos</h3>
+          <p>
+            Les carreaux de faïence aux motifs géométriques et floraux, c'est l'ADN visuel de Valencia. La gare du Nord (Estación del Norte) en est le joyau : des panneaux entiers de mosaïques qui racontent la huerta, les oranges, la mer. Un musée gratuit où tu passes sans t'en rendre compte.
+          </p>
+        </div>
+      </div>
+
+      <div class="heritage-card fade-in">
+        <div class="heritage-card-visual historico-bg">⛪</div>
+        <div class="heritage-card-body">
+          <h3>Le Centre Historique</h3>
+          <p>
+            La Cathédrale qui abrite (soi-disant) le Saint Graal. La Lonja de la Seda, ce bijou gothique classé UNESCO, où les marchands de soie pesaient leurs cargaisons au XVᵉ siècle. Le Mercado Central, cathédrale moderniste du jambon et du fromage. Se perdre dans les ruelles du Carmen, c'est gratuit, et c'est le meilleur musée de la ville.
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="timeline">
+    <!-- ===== QUARTIERS — EMBEDDED IN HERITAGE ===== -->
+    <div class="container" style="margin-top: 4rem;">
+      <div class="editorial-intro">
+        <h2 style="color:#fff;">Trouver le bon quartier, c'est 80% du taf</h2>
+        <p style="color:rgba(255,255,255,0.70);">
+          J'ai passé des nuits entières sur Google Maps. À zoomer sur les rues, à regarder les avis des écoles, à calculer le temps de trajet jusqu'à la plage. Voilà notre top 3.
+        </p>
+      </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Septembre 2026 — maintenant</div>
-            <h3>On pose les fondations</h3>
-            <p>
-              L'espagnol, tous les jours. Moi je vise B2 (j'ai déjà des bases pourries de collège), ma femme démarre de zéro avec Duolingo et un prof sur Italki. Le compte bancaire N26 est ouvert. L'épargne mensuelle de 800&nbsp;€ est automatisée. Mon LinkedIn passe en espagnol. Premier petit pas : j'ai changé la langue de mon téléphone. <em>Configuración.</em> Voilà.
-            </p>
+      <div class="quartier-filter" style="text-align: center; margin-bottom: 2rem;">
+        <button data-filter="all" class="active">Tous</button>
+        <button data-filter="famille">Famille</button>
+        <button data-filter="centre">Centre</button>
+        <button data-filter="bord-de-mer">Bord de mer</button>
+      </div>
+
+      <div class="quartiers-grid">
+        <div class="quartier-card featured fade-in" data-category="famille">
+          <div class="quartier-header">
+            <h3>Benimaclet</h3>
+            <span class="quartier-badge">❤️ Coup de cœur</span>
+          </div>
+          <div class="quartier-price">950 – 1&nbsp;300&nbsp;€</div>
+          <p class="quartier-desc">
+            Un ancien village avalé par la ville mais qui a jamais perdu son âme. La <em>plaça</em> de Benimaclet, c'est le cœur qui bat : des gamins qui courent partout, des papis qui jouent aux dominos, des terrasses où le vermouth est à 2&nbsp;€. La ligne 3 du métro te pose au centre en 6 minutes.
+          </p>
+          <div class="quartier-meta">
+            <span>Très familial</span>
+            <span>Métro + tram</span>
+            <span>Bonnes écoles</span>
           </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Printemps 2027</div>
-            <h3>Le voyage exploratoire — pas en touriste</h3>
-            <p>
-              Une semaine à Valencia, mais pas pour visiter la Cité des Arts et des Sciences (ça, on l'a déjà faite). Cette fois, on va checker les quartiers un par un. Benimaclet, Patraix, Campanar. Prendre le métro aux heures de pointe. Frapper à la porte de deux-trois écoles. Sentir si les gamins s'y voient. Boire un café sur une place à 10h un mardi. Voir la ville quand elle est pas en mode vacances.
-            </p>
+        <div class="quartier-card fade-in" data-category="famille">
+          <div class="quartier-header">
+            <h3>Patraix</h3>
+          </div>
+          <div class="quartier-price">900 – 1&nbsp;200&nbsp;€</div>
+          <p class="quartier-desc">
+            Personne connaît Patraix et c'est tant mieux. Des ruelles piétonnes avec des orangers, des bancs à l'ombre, des vieux qui balayent devant leur porte. C'est calme, c'est propre, et t'as la ligne 1 du métro qui te dépose en centre-ville en 10 minutes.
+          </p>
+          <div class="quartier-meta">
+            <span>Rapport Q/P imbattable</span>
+            <span>Calme</span>
+            <span>Écoles publiques solides</span>
           </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Début 2028</div>
-            <h3>Les papiers, les candidatures, le stress utile</h3>
-            <p>
-              Traductions assermentées des actes de naissance (oui, même pour les gamins, oui, ça coûte un bras). Candidatures sur InfoJobs et LinkedIn — le CV bilingue est prêt, je l'ai fait relire par un Espagnol sur Reddit. La checklist pré-départ s'accélère : résilier les contrats français, prévenir l'école, booker le camion. C'est la phase où tu te dis « ah ouais, on le fait vraiment ».
-            </p>
+        <div class="quartier-card fade-in" data-category="famille">
+          <div class="quartier-header">
+            <h3>Campanar</h3>
+          </div>
+          <div class="quartier-price">1&nbsp;000 – 1&nbsp;400&nbsp;€</div>
+          <p class="quartier-desc">
+            Plus résidentiel, plus moderne. Des immeubles récents, des rues larges, et l'hôpital La Fe juste à côté — avec trois gamins dont un qui fait de l'asthme, c'est pas un détail. Le Bioparc est à 15 minutes.
+          </p>
+          <div class="quartier-meta">
+            <span>Moderne</span>
+            <span>Hôpital La Fe</span>
+            <span>Bioparc à proximité</span>
           </div>
         </div>
+      </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Été 2028</div>
-            <h3>On pose les valises</h3>
-            <p>
-              L'appart est trouvé (on aura calé les visites en amont). La première nuit dans le salon vide, sur un matelas gonflable, avec les cartons qui montent jusqu'au plafond. Les gamins excités comme des puces. L'empadronamiento à faire dès le premier lundi. L'école à trouver pour septembre. Et ce moment, j'espère, où ma femme et moi on se regarde et on se dit : «&nbsp;Ça y est. On l'a fait.&nbsp;»
-            </p>
-          </div>
-        </div>
-
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="pages/quartiers.html" class="btn btn-outline">Voir tous les quartiers en détail →</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== BUDGET ===== -->
-  <section class="section" id="budget">
-    <div class="container">
+  <!-- ================================================================ -->
+  <!-- SECTION 3 — SAVEURS & TRADITIONS -->
+  <!-- ================================================================ -->
+  <section class="section-culture" id="saveurs">
+    <div class="culture-header">
+      <span class="section-icon">🔥</span>
+      <h2>Saveurs &amp; Traditions</h2>
+      <div class="section-underline"></div>
+    </div>
+
+    <div class="container-narrow" style="text-align:center; margin-bottom:2.5rem;">
+      <p style="font-size:1.1rem; color:var(--charcoal-light); max-width:650px; margin:0 auto;">
+        La gastronomie espagnole, c'est pas des tapas surgelés. C'est le marché qui donne le tempo, les produits qui ont du goût, et des traditions qui transforment la ville entière en fête.
+      </p>
+    </div>
+
+    <div class="traditions-grid">
+      <div class="tradition-card fade-in">
+        <span class="trad-icon">🔥</span>
+        <h3>Las Fallas</h3>
+        <p>
+          Chaque mars, Valencia brûle. Littéralement. Des sculptures géantes en carton-pâte — les <em>ninots</em> — envahissent les rues pendant quatre jours. Puis tout part en fumée dans un feu d'artifice monumental. La <em>mascletà</em> sur la Plaza del Ayuntamiento, c'est pas un feu d'artifice : c'est une expérience physique. Le sol vibre, ta poitrine aussi.
+        </p>
+      </div>
+
+      <div class="tradition-card fade-in">
+        <span class="trad-icon">🦐</span>
+        <h3>La Gastronomie du Marché</h3>
+        <p>
+          Le Mercado Central, c'est 8000 m² de paradis. Le jambon <em>ibérico de bellota</em> qui fond sur la langue. Les gambas rouges de Denia, les fromages de chèvre de la Sierra, et ce vendeur qui te fait goûter trois olives avant que t'aies dit bonjour. Cuisiner ici, c'est facile : les produits font tout le boulot.
+        </p>
+      </div>
+
+      <div class="tradition-card fade-in">
+        <span class="trad-icon">🥤</span>
+        <h3>L'Horchata &amp; les Fartons</h3>
+        <p>
+          La <em>horchata de chufa</em>, c'est la boisson valencienne par excellence. Un lait végétal de souchet, servi glacé, avec des <em>fartons</em> — ces brioches allongées saupoudrées de sucre glace. Le combo parfait un samedi matin à 11h, assis en terrasse, pendant que la ville s'éveille doucement. Dire que certains boivent du café...
+        </p>
+      </div>
+
+      <div class="tradition-card fade-in">
+        <span class="trad-icon">🎭</span>
+        <h3>Les Fêtes de Quartier</h3>
+        <p>
+          Oublie les festivals bondés. Ici, chaque <em>barrio</em> a sa propre fête. À Benimaclet, les <em>fiestas patronales</em> en septembre — des bals populaires, des concours de paella entre voisins, des gamins qui courent jusqu'à minuit. C'est cette vie de quartier qu'on vient chercher : pas le Valencia des guides touristiques, le Valencia de ceux qui y vivent.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== BUDGET CALCULATOR — EMBEDDED IN SAVEURS ===== -->
+    <div class="container" style="margin-top: 4rem;">
       <div class="editorial-intro" style="text-align: left;">
         <h2>Et ça coûte combien, ton rêve&nbsp;?</h2>
         <p>
@@ -216,7 +726,6 @@
       </div>
 
       <div class="budget-layout">
-        <!-- Calculateur interactif — CONSERVER TOUS LES DATA-ATTRIBUTES -->
         <div class="calculator fade-in">
           <div class="calc-scenario">
             <button data-scenario="sobre">🍃 Sobre</button>
@@ -239,7 +748,6 @@
           </div>
         </div>
 
-        <!-- Bloc épargne -->
         <div class="budget-epargne fade-in">
           <div class="epargne-card">
             <p class="epargne-label">Ce qu'on met de côté</p>
@@ -255,77 +763,62 @@
     </div>
   </section>
 
-  <!-- ===== QUARTIERS ===== -->
-  <section class="section section-alt" id="quartiers">
-    <div class="container">
+  <!-- ===== TIMELINE — LE PLAN ===== -->
+  <section class="section section-alt" id="timeline">
+    <div class="container-narrow">
       <div class="editorial-intro">
-        <h2>Trouver le bon quartier, c'est 80% du taf</h2>
+        <h2>Ok, mais concrètement, on fait quoi&nbsp;?</h2>
         <p>
-          J'ai passé des nuits entières sur Google Maps. À zoomer sur les rues, à regarder les avis des écoles, à calculer le temps de trajet jusqu'à la plage. Voilà notre top 3. Affiné, rerodé, obsédé.
+          Deux ans. C'est ce qu'on s'est donné. Pas trop long pour pas perdre le feu, pas trop court pour pas finir en burn-out. Voilà les quatre temps du match.
         </p>
       </div>
+    </div>
 
-      <!-- Filtres quartiers -->
-      <div class="quartier-filter" style="text-align: center; margin-bottom: 2rem;">
-        <button data-filter="all" class="active">Tous</button>
-        <button data-filter="famille">Famille</button>
-        <button data-filter="centre">Centre</button>
-        <button data-filter="bord-de-mer">Bord de mer</button>
-      </div>
-
-      <div class="quartiers-grid">
-        <!-- Benimaclet — Coup de cœur -->
-        <div class="quartier-card featured fade-in" data-category="famille">
-          <div class="quartier-header">
-            <h3>Benimaclet</h3>
-            <span class="quartier-badge">❤️ Coup de cœur</span>
-          </div>
-          <div class="quartier-price">950 – 1&nbsp;300&nbsp;€</div>
-          <p class="quartier-desc">
-            Un ancien village avalé par la ville mais qui a jamais perdu son âme. La <em>plaça</em> de Benimaclet, c'est le cœur qui bat : des gamins qui courent partout, des papis qui jouent aux dominos, des terrasses où le vermouth est à 2&nbsp;€. La ligne 3 du métro te pose au centre en 6 minutes. Y'a un marché couvert, des épiceries de quartier, et ce petit resto marocain Calle Barón de San Petrillo dont je te parlerai jamais assez. Si t'as des enfants et que tu veux pas vivre dans un dortoir, c'est là.
-          </p>
-          <div class="quartier-meta">
-            <span>Très familial</span>
-            <span>Métro + tram</span>
-            <span>Bonnes écoles</span>
+    <div class="container">
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Septembre 2026 — maintenant</div>
+            <h3>On pose les fondations</h3>
+            <p>
+              L'espagnol, tous les jours. Moi je vise B2 (j'ai déjà des bases pourries de collège), ma femme démarre de zéro avec Duolingo et un prof sur Italki. Le compte bancaire N26 est ouvert. L'épargne mensuelle de 800&nbsp;€ est automatisée. Mon LinkedIn passe en espagnol. Premier petit pas : j'ai changé la langue de mon téléphone. <em>Configuración.</em> Voilà.
+            </p>
           </div>
         </div>
 
-        <!-- Patraix — Le secret -->
-        <div class="quartier-card fade-in" data-category="famille">
-          <div class="quartier-header">
-            <h3>Patraix</h3>
-          </div>
-          <div class="quartier-price">900 – 1&nbsp;200&nbsp;€</div>
-          <p class="quartier-desc">
-            Personne connaît Patraix et c'est tant mieux. Des ruelles piétonnes avec des orangers, des bancs à l'ombre, des vieux qui balayent devant leur porte. C'est calme, c'est propre, et t'as la ligne 1 du métro qui te dépose en centre-ville en 10 minutes. Le meilleur rapport qualité-prix de la ville, surtout si tu cherches un T4. Le marché de Patraix le samedi matin, c'est une madeleine de Proust. Bonus : le parc de l'Oest est à 5 minutes à pied, parfait pour les gamins.
-          </p>
-          <div class="quartier-meta">
-            <span>Rapport Q/P imbattable</span>
-            <span>Calme</span>
-            <span>Écoles publiques solides</span>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Printemps 2027</div>
+            <h3>Le voyage exploratoire — pas en touriste</h3>
+            <p>
+              Une semaine à Valencia, mais pas pour visiter la Cité des Arts et des Sciences (ça, on l'a déjà faite). Cette fois, on va checker les quartiers un par un. Benimaclet, Patraix, Campanar. Prendre le métro aux heures de pointe. Frapper à la porte de deux-trois écoles. Sentir si les gamins s'y voient.
+            </p>
           </div>
         </div>
 
-        <!-- Campanar — Le cocon -->
-        <div class="quartier-card fade-in" data-category="famille">
-          <div class="quartier-header">
-            <h3>Campanar</h3>
-          </div>
-          <div class="quartier-price">1&nbsp;000 – 1&nbsp;400&nbsp;€</div>
-          <p class="quartier-desc">
-            Plus résidentiel, plus moderne. Des immeubles récents, des rues larges, et l'hôpital La Fe juste à côté — avec trois gamins dont un qui fait de l'asthme, c'est pas un détail. Le Bioparc est à 15 minutes, le parc de Capçalera pour les dimanches vélo. C'est moins «&nbsp;village&nbsp;» que Benimaclet, mais c'est rassurant. Si t'as besoin d'un cadre propre et fonctionnel sans mauvaise surprise, Campanar coche toutes les cases.
-          </p>
-          <div class="quartier-meta">
-            <span>Moderne</span>
-            <span>Hôpital La Fe</span>
-            <span>Bioparc à proximité</span>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Début 2028</div>
+            <h3>Les papiers, les candidatures, le stress utile</h3>
+            <p>
+              Traductions assermentées des actes de naissance. Candidatures sur InfoJobs et LinkedIn — le CV bilingue est prêt, je l'ai fait relire par un Espagnol sur Reddit. La checklist pré-départ s'accélère : résilier les contrats français, prévenir l'école, booker le camion.
+            </p>
           </div>
         </div>
-      </div>
 
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="pages/quartiers.html" class="btn btn-outline">Voir tous les quartiers en détail →</a>
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Été 2028</div>
+            <h3>On pose les valises</h3>
+            <p>
+              L'appart est trouvé. La première nuit dans le salon vide, sur un matelas gonflable, avec les cartons qui montent jusqu'au plafond. Les gamins excités comme des puces. L'empadronamiento à faire dès le premier lundi. Et ce moment où ma femme et moi on se regarde et on se dit : «&nbsp;Ça y est. On l'a fait.&nbsp;»
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -340,10 +833,7 @@
         </p>
       </div>
 
-      <!-- Guides : layout éditorial varié -->
       <div class="guide-layout">
-
-        <!-- Rangée 1 : 3 featured -->
         <div class="guide-row guide-featured">
           <a href="pages/budget.html" class="guide-card guide-card--featured fade-in">
             <h3>Budget & Coût de la vie</h3>
@@ -352,7 +842,7 @@
           </a>
           <a href="pages/scolarite.html" class="guide-card guide-card--featured fade-in">
             <h3>Scolarité</h3>
-            <p>Le système espagnol décrypté par quelqu'un qui y a passé des heures. Cycles, inscriptions, langues, cantine. Pour les 3-12 ans.</p>
+            <p>Le système espagnol décrypté par quelqu'un qui y a passé des heures. Cycles, inscriptions, langues, cantine.</p>
             <span class="guide-link">Voir le détail →</span>
           </a>
           <a href="pages/quartiers.html" class="guide-card guide-card--featured fade-in">
@@ -362,7 +852,6 @@
           </a>
         </div>
 
-        <!-- Rangée 2 : liste éditoriale -->
         <div class="guide-list fade-in">
           <div class="guide-list-header">
             <h3>Les démarches</h3>
@@ -379,27 +868,25 @@
             </a>
             <a href="pages/emploi.html" class="guide-list-item">
               <span class="guide-list-title">Emploi & Carrière</span>
-              <span class="guide-list-desc">Le marché de la logistique à Valencia vu par un logisticien. Salaires, sites, stratégies. Sans langue de bois.</span>
+              <span class="guide-list-desc">Le marché de la logistique à Valencia vu par un logisticien. Salaires, sites, stratégies.</span>
             </a>
           </div>
         </div>
 
-        <!-- Rangée 3 : outils pratiques -->
         <div class="guide-mini-grid fade-in">
           <a href="pages/checklists.html" class="guide-card guide-card--mini">
             <h3>✅ Checklists</h3>
-            <p>Pré-départ et arrivée. Ce qu'il faut faire, dans l'ordre, pour rien oublier quand t'as la tête dans le guidon.</p>
+            <p>Pré-départ et arrivée. Ce qu'il faut faire, dans l'ordre, pour rien oublier.</p>
           </a>
           <a href="pages/ressources.html" class="guide-card guide-card--mini">
             <h3>📇 Ressources & Contacts</h3>
-            <p>Hôpitaux, banques, groupes d'expats, numéros utiles. La boîte à outils que j'aurais voulu avoir.</p>
+            <p>Hôpitaux, banques, groupes d'expats, numéros utiles. La boîte à outils.</p>
           </a>
           <a href="pages/ecoles.html" class="guide-card guide-card--mini">
             <h3>🎒 Écoles par quartier</h3>
-            <p>Les établissements qu'on a repérés, quartier par quartier, avec nos critères et nos notes.</p>
+            <p>Les établissements qu'on a repérés, quartier par quartier, avec nos critères.</p>
           </a>
         </div>
-
       </div>
     </div>
   </section>
@@ -415,12 +902,12 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER — NAVY + CARTE ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h4>🇪🇸 Maxpatrie</h4>
+          <h4>🇪🇸 MAXPATRIE</h4>
           <p>
             Journal de bord d'une famille française qui s'expatrie à Valencia. Budget, écoles, quartiers, démarches — tout ce qu'on apprend, on le partage. 🥘🍊🏖️
           </p>
@@ -446,12 +933,19 @@
         <div class="footer-col">
           <h4>Le projet</h4>
           <ul>
-            <li><a href="#histoire">Notre histoire</a></li>
+            <li><a href="#art-de-vivre">Art de Vivre</a></li>
+            <li><a href="#heritage">Heritage</a></li>
+            <li><a href="#saveurs">Saveurs & Traditions</a></li>
             <li><a href="#timeline">Le planning</a></li>
-            <li><a href="pages/ecoles.html">Écoles par quartier</a></li>
           </ul>
         </div>
       </div>
+
+      <!-- Carte de référence Valencia -->
+      <div class="footer-map-reference">
+        <span>🗺️</span> Valencia, España — 39°28′N 0°22′W — Costa del Azahar, Mer Méditerranée
+      </div>
+
       <div class="footer-bottom">
         <span>© 2026 Maxpatrie — Fait avec ❤️ et beaucoup de cafés — ¡Hasta pronto!</span>
         <span>Valencia · Été 2028 ☀️</span>
