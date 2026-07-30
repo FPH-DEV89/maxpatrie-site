@@ -17,7 +17,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Stitch Design Overrides — Header Blanc + Hero Rose→Jaune + Sections Culturelles -->
+  <!-- Stitch Design Overrides — Header Beige + Hero Rose→Jaune + Sections Culturelles -->
   <style>
     /* === STITCH DESIGN SYSTEM === */
     :root {
@@ -30,14 +30,14 @@
       --stitch-terracotta: #924b26;
     }
 
-    /* --- NAV HEADER — Fond BLANC, texte foncé --- */
+    /* --- NAV HEADER — Fond BEIGE, texte foncé --- */
     .navbar {
-      background: #ffffff;
+      background: #fbfbe2;
       padding: 0.6rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
     .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(251, 251, 226, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 0.4rem 0;
@@ -69,7 +69,7 @@
       background: #001626;
     }
 
-    /* --- HERO VALENCIA — Dégradé rose → jaune/orangé --- */
+    /* --- HERO VALENCIA — Dégradé rose → jaune/orangé + photo overlay --- */
     .hero-valencia {
       position: relative;
       min-height: 100vh;
@@ -80,6 +80,15 @@
       overflow: hidden;
       padding: 6rem 2rem 4rem;
       background: linear-gradient(165deg, #e8b4b8 0%, #e8a098 20%, #e09860 42%, #e8a850 60%, #f0c060 78%, #fdf0c8 100%);
+    }
+    /* Photo overlay — Valencia cityscape / maison */
+    .hero-valencia .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="%23e8b4b8" stop-opacity="0.9"/><stop offset="100%" stop-color="%23fdf0c8" stop-opacity="0.2"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23sky)"/><g opacity="0.12"><!-- Maison valencienne --><rect x="250" y="420" width="700" height="3" fill="%23924b26"/><rect x="280" y="380" width="140" height="40" rx="2" fill="%23924b26"/><rect x="480" y="340" width="160" height="80" rx="2" fill="%23924b26"/><rect x="700" y="360" width="150" height="60" rx="2" fill="%23924b26"/><rect x="310" y="390" width="40" height="40" rx="15" fill="%23fbfbe2"/><rect x="520" y="355" width="40" height="40" rx="15" fill="%23fbfbe2"/><rect x="560" y="355" width="40" height="40" rx="15" fill="%23fbfbe2"/><!-- Tour --><rect x="850" y="300" width="60" height="120" rx="3" fill="%23924b26"/><circle cx="880" cy="320" r="10" fill="%23fbfbe2"/><!-- Palmiers --><rect x="150" y="400" width="6" height="80" rx="3" fill="%23924b26"/><circle cx="153" cy="395" r="30" fill="%238BC34A" opacity="0.3"/><rect x="1000" y="380" width="5" height="70" rx="3" fill="%23924b26"/><circle cx="1002" cy="375" r="28" fill="%238BC34A" opacity="0.3"/></g></svg>') center/cover no-repeat;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.40;
     }
     .hero-valencia::before {
       content: '';
@@ -237,23 +246,23 @@
       background: var(--stitch-warm-cream);
     }
 
-    /* Heritage — deep navy bg */
+    /* Heritage — fond blanc contrasté (Stitch design) */
     .section-heritage {
-      background: var(--med-blue-deep);
-      color: rgba(255, 255, 255, 0.85);
+      background: #ffffff;
+      color: var(--charcoal);
     }
     .section-heritage h2,
     .section-heritage h3 {
-      color: #ffffff;
+      color: var(--charcoal);
     }
     .section-heritage .section-underline {
       background: var(--saffron);
     }
 
-    /* Culture Cards — 2 colonnes */
+    /* Culture Cards — 3 colonnes (Stitch design) */
     .culture-cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       max-width: var(--max-width);
       margin: 0 auto;
@@ -299,8 +308,8 @@
       padding: 0 var(--space-lg);
     }
     .heritage-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--stitch-warm-cream);
+      border: 1px solid rgba(146, 75, 38, 0.12);
       border-radius: 14px;
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease;
@@ -331,12 +340,12 @@
     }
     .heritage-card-body h3 {
       font-family: var(--font-heading);
-      color: #ffffff;
+      color: var(--charcoal);
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
     }
     .heritage-card-body p {
-      color: rgba(255, 255, 255, 0.65);
+      color: var(--charcoal-light);
       font-size: 0.92rem;
       line-height: 1.6;
     }
@@ -377,9 +386,9 @@
       line-height: 1.6;
     }
 
-    /* --- FOOTER — Fond BLANC --- */
+    /* --- FOOTER — Fond BEIGE --- */
     .footer {
-      background: #ffffff;
+      background: #fbfbe2;
       color: #555555;
       padding: 3rem 0 1.5rem;
       border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -425,6 +434,11 @@
     }
 
     /* Responsive */
+    @media (max-width: 900px) {
+      .culture-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     @media (max-width: 768px) {
       .hero-valencia h1 {
         font-size: 2.8rem;
@@ -460,7 +474,7 @@
 </head>
 <body>
 
-  <!-- ===== NAVIGATION — HEADER BLANC ===== -->
+  <!-- ===== NAVIGATION — HEADER BEIGE ===== -->
   <nav class="navbar" role="navigation">
     <div class="container">
       <a href="/" class="nav-logo"><span class="flag">🇪🇸</span>MAXPATRIE</a>
@@ -478,8 +492,9 @@
   </nav>
   <div class="nav-overlay"></div>
 
-  <!-- ===== HERO — VALENCIA, Dégradé Rose → Jaune ===== -->
+  <!-- ===== HERO — VALENCIA, Dégradé Rose → Jaune + Photo Overlay ===== -->
   <header class="hero-valencia" id="accueil">
+    <div class="hero-photo-overlay"></div>
     <div class="hero-inner">
       <div class="hero-badge">🇪🇸 Art de Vivre & Culture Espagnole</div>
       <h1>Valencia</h1>
@@ -502,14 +517,14 @@
       </div>
 
       <div class="hero-cta-group">
-        <a href="#art-de-vivre" class="btn btn-primary">Découvrir</a>
+        <a href="#art-de-vivre" class="btn btn-primary">Découvrir la culture</a>
         <a href="#guide" class="btn-outline-white">Voir le guide complet</a>
       </div>
     </div>
   </header>
 
   <!-- ================================================================ -->
-  <!-- SECTION 1 — ART DE VIVRE & CULTURE ESPAGNOLE -->
+  <!-- SECTION 1 — ART DE VIVRE & CULTURE ESPAGNOLE (Fond beige) -->
   <!-- ================================================================ -->
   <section class="section-culture section-cream" id="art-de-vivre">
     <div class="culture-header">
@@ -552,17 +567,17 @@
   </section>
 
   <!-- ================================================================ -->
-  <!-- SECTION 2 — HERITAGE & ARCHITECTURE -->
+  <!-- SECTION 2 — HERITAGE & ARCHITECTURE (Fond blanc) -->
   <!-- ================================================================ -->
   <section class="section-culture section-heritage" id="heritage">
     <div class="culture-header">
       <span class="section-icon">🏛️</span>
-      <h2 style="color:#fff;">Heritage &amp; Architecture</h2>
-      <div class="section-underline" style="background:var(--saffron);"></div>
+      <h2>Heritage &amp; Architecture</h2>
+      <div class="section-underline"></div>
     </div>
 
     <div class="container-narrow" style="text-align:center; margin-bottom:2.5rem;">
-      <p style="font-size:1.1rem; color:rgba(255,255,255,0.65); max-width:650px; margin:0 auto;">
+      <p style="font-size:1.1rem; color:var(--charcoal-light); max-width:650px; margin:0 auto;">
         Valencia, c'est 2000 ans d'histoire qui cohabitent avec une architecture futuriste. La ville où les remparts romains côtoient Calatrava, où les azulejos racontent des siècles de tradition artisanale.
       </p>
     </div>
@@ -602,8 +617,8 @@
     <!-- ===== QUARTIERS — EMBEDDED IN HERITAGE ===== -->
     <div class="container" style="margin-top: 4rem;">
       <div class="editorial-intro">
-        <h2 style="color:#fff;">Trouver le bon quartier, c'est 80% du taf</h2>
-        <p style="color:rgba(255,255,255,0.70);">
+        <h2>Trouver le bon quartier, c'est 80% du taf</h2>
+        <p>
           J'ai passé des nuits entières sur Google Maps. À zoomer sur les rues, à regarder les avis des écoles, à calculer le temps de trajet jusqu'à la plage. Voilà notre top 3.
         </p>
       </div>
@@ -670,9 +685,9 @@
   </section>
 
   <!-- ================================================================ -->
-  <!-- SECTION 3 — SAVEURS & TRADITIONS -->
+  <!-- SECTION 3 — SAVEURS & TRADITIONS (Fond beige) -->
   <!-- ================================================================ -->
-  <section class="section-culture" id="saveurs">
+  <section class="section-culture section-cream" id="saveurs">
     <div class="culture-header">
       <span class="section-icon">🔥</span>
       <h2>Saveurs &amp; Traditions</h2>
@@ -905,7 +920,7 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER — Fond BLANC ===== -->
+  <!-- ===== FOOTER — Fond BEIGE ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">

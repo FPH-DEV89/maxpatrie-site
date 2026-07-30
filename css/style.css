@@ -1,45 +1,56 @@
 /* =============================================
    MAXPATRIE — Design Stitch by Florian
-   "Maxpatrie Home - Spanish Heritage"
-   Palette : Warm Beige / Terracotta / Deep Navy (accents only)
+   Palette : Warm Beige / Terracotta / Deep Navy
    Typo  : Playfair Display (headings) + Source Sans 3 (body)
    ============================================= */
 
 /* --- Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
-/* --- CSS Variables — Stitch Palette --- */
+/* =============================================
+   CSS VARIABLES — Stitch Palette Exact
+   ============================================= */
 :root {
-  /* === Colors — Stitch exact === */
-  --navy:          #001626;
-  --navy-dark:     #000d14;
-  --navy-light:    #002644;
+  /* === Fond principal — Beige (Stitch exact) === */
+  --bg-beige:           #fbfbe2;
+  --bg-beige-light:     #fdfded;
+  --bg-beige-dark:      #f0f0d0;
 
-  /* === Fond principal — Warm Beige (Stitch exact) === */
-  --cream:         #fbfbe2;
-  --cream-light:   #fdfded;
-  --cream-dark:    #f0f0d0;
+  /* === Surfaces === */
+  --bg-white:           #ffffff;
+  --bg-card:            #ffffff;
 
-  /* === Accents — Terracotta (Stitch exact) === */
-  --terracotta:    #924b26;
-  --terracotta-dark: #6e381c;
-  --terracotta-ghost: rgba(146, 75, 38, 0.10);
-  --olive:         #8BC34A;
-  --olive-dark:    #6d9e38;
-  --olive-ghost:   rgba(139, 195, 74, 0.10);
+  /* === Navy — Accents & headers intérieurs === */
+  --navy:               #001626;
+  --navy-dark:          #000d14;
+  --navy-light:         #002644;
 
-  /* === Legacy variable aliases — HTML inline styles compatibility === */
+  /* === Terracotta — CTA, liens, accents === */
+  --terracotta:         #924b26;
+  --terracotta-dark:    #6e381c;
+  --terracotta-light:   #f5e1d8;
+  --terracotta-ghost:   rgba(146, 75, 38, 0.10);
+
+  /* === Texte === */
+  --text:               #1a1a1a;
+  --text-light:         #555555;
+  --text-muted:         #777777;
+
+  /* === Legacy aliases — pour compatibilité HTML inline styles === */
+  --cream:              var(--bg-beige);
+  --cream-light:        var(--bg-beige-light);
+  --cream-dark:         var(--bg-beige-dark);
   --saffron:            var(--terracotta);
   --saffron-dark:       var(--terracotta-dark);
-  --saffron-light:      #e8c0a8;
+  --saffron-light:      var(--terracotta-light);
   --saffron-ghost:      var(--terracotta-ghost);
   --spain-red:          var(--terracotta);
   --spain-red-dark:     var(--terracotta-dark);
   --spain-red-ghost:    var(--terracotta-ghost);
   --med-blue:           var(--navy);
-  --med-blue-dark:      var(--navy-dark);
-  --med-blue-ghost:     rgba(3, 43, 68, 0.07);
+  --med-blue-dark:      var(--navy);
   --med-blue-deep:      var(--navy-dark);
+  --med-blue-ghost:     rgba(0, 22, 38, 0.07);
   --slate:              var(--navy);
   --slate-deep:         var(--navy-dark);
   --slate-light:        var(--navy-light);
@@ -49,30 +60,27 @@
   --accent-light:       var(--terracotta-ghost);
   --golden:             var(--terracotta);
   --golden-dark:        var(--terracotta-dark);
-
-  /* === Surfaces === */
-  --white:              #ffffff;
-  --bg-main:            var(--cream);          /* Fond beige chaud */
-  --surface:            var(--cream-dark);      /* Surface alternée */
-  --surface-alt:        #f0ede6;               /* Surface alt — beige très clair */
-  --sand:               var(--surface-alt);
-  --sand-dark:          #e4dbcf;
-  --card-bg:            var(--white);
-  --section-alt:        #f0ede6;
-
-  /* === Semantics === */
-  --text:               #1a1a1a;
-  --text-light:         #555555;
   --charcoal:           var(--text);
   --charcoal-light:     var(--text-light);
   --red-soft:           var(--terracotta);
+  --white:              #ffffff;
+  --red:                var(--terracotta);
 
-  /* === Typography === */
+  /* === Surfaces utilitaires === */
+  --bg-main:            var(--bg-beige);
+  --surface:            var(--bg-beige-dark);
+  --surface-alt:        #f0ede6;
+  --sand:               #f0ede6;
+  --sand-dark:          #e4dbcf;
+  --card-bg:            var(--bg-white);
+  --section-alt:        #f0ede6;
+
+  /* === Typographie === */
   --font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
   --font-body:    'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:    'SF Mono', 'Fira Code', 'Cousine', monospace;
 
-  /* === Spacing === */
+  /* === Espacements === */
   --space-xs:  0.25rem;
   --space-sm:  0.5rem;
   --space-md:  1rem;
@@ -82,7 +90,7 @@
   --max-width:        1100px;
   --max-width-narrow: 750px;
 
-  /* === Easing — ease-out-quart ONLY === */
+  /* === Easing === */
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
 
   /* === Transitions === */
@@ -91,7 +99,9 @@
   --transition-slow: 500ms var(--ease-out);
 }
 
-/* --- Reset --- */
+/* =============================================
+   RESET
+   ============================================= */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -108,13 +118,15 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text);
-  background: var(--cream);
+  background: var(--bg-beige);
   line-height: 1.75;
   overflow-x: hidden;
 }
 
-/* --- Typography --- */
-h1, h2, h3, h4 {
+/* =============================================
+   TYPOGRAPHIE
+   ============================================= */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.15;
@@ -162,7 +174,15 @@ strong {
   font-weight: 600;
 }
 
-/* --- Layout --- */
+/* Labels — uppercase, letter-spacing (Stitch spec) */
+label, .label, .badge {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -179,7 +199,7 @@ strong {
   padding: var(--space-2xl) 0;
 }
 
-/* Alternance : fond crème alterné avec blanc */
+/* Alternance : fond légèrement contrasté */
 .section-alt {
   background: var(--section-alt);
   color: var(--text);
@@ -203,7 +223,6 @@ strong {
 /* =============================================
    MOTIF AZULEJOS TEXTURE — CSS pur
    Fond géométrique répétable style carreaux
-   Conservé pour les sections heritage
    ============================================= */
 .azulejos-bg {
   background-color: var(--navy);
@@ -237,7 +256,6 @@ strong {
     80px 80px;
 }
 
-/* Variante plus subtile */
 .azulejos-subtle {
   background-color: var(--navy-dark);
   background-image:
@@ -258,7 +276,7 @@ strong {
 }
 
 /* =============================================
-   NAVBAR — Fond BLANC, texte foncé (Stitch)
+   NAVBAR — Default: fond BEIGE, texte foncé (Home)
    ============================================= */
 .navbar {
   position: fixed;
@@ -267,13 +285,13 @@ strong {
   right: 0;
   z-index: 1000;
   padding: var(--space-md) 0;
-  background: var(--white);
+  background: var(--bg-beige);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(251, 251, 226, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: var(--space-sm) 0;
@@ -287,6 +305,58 @@ strong {
   align-items: center;
 }
 
+/* --- Navbar Navy Variant — Pages intérieures (budget, etc.) --- */
+.navbar.navbar-navy {
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.navbar.navbar-navy.scrolled {
+  background: rgba(0, 22, 38, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.20);
+}
+
+.navbar.navbar-navy .nav-logo {
+  color: #ffffff;
+}
+
+.navbar.navbar-navy .nav-links a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar.navbar-navy .nav-links a:hover {
+  color: #ffffff;
+}
+
+.navbar.navbar-navy .nav-links a::after {
+  background: var(--terracotta);
+}
+
+.navbar.navbar-navy .nav-cta {
+  background: var(--terracotta);
+  color: #ffffff !important;
+}
+
+.navbar.navbar-navy .nav-toggle span {
+  background: #ffffff;
+}
+
+.navbar.navbar-navy .nav-search input {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+}
+
+.navbar.navbar-navy .nav-search input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.navbar.navbar-navy .nav-search input:focus {
+  border-color: var(--terracotta);
+}
+
+/* --- Nav Logo --- */
 .nav-logo {
   font-family: var(--font-heading);
   font-size: 1.4rem;
@@ -299,10 +369,12 @@ strong {
   text-decoration: none;
 }
 
-.nav-logo .emoji {
+.nav-logo .emoji,
+.nav-logo .flag {
   font-size: 1.6rem;
 }
 
+/* --- Nav Links --- */
 .nav-links {
   display: flex;
   gap: var(--space-lg);
@@ -339,7 +411,7 @@ strong {
   width: 100%;
 }
 
-/* Search bar in navbar */
+/* --- Nav Search --- */
 .nav-search {
   display: flex;
   align-items: center;
@@ -352,7 +424,7 @@ strong {
   padding: 0.4rem 0.8rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
-  background: var(--cream-light);
+  background: var(--bg-beige-light);
   color: var(--text);
   outline: none;
   transition: border-color var(--transition-fast);
@@ -368,9 +440,10 @@ strong {
   opacity: 0.6;
 }
 
+/* --- Nav CTA --- */
 .nav-cta {
   background: var(--terracotta);
-  color: var(--white) !important;
+  color: var(--bg-white) !important;
   padding: 0.45rem 1.1rem;
   border-radius: 6px;
   font-weight: 600;
@@ -379,14 +452,14 @@ strong {
 
 .nav-cta:hover {
   background: var(--terracotta-dark);
-  color: var(--white) !important;
+  color: var(--bg-white) !important;
 }
 
 .nav-cta::after {
   display: none !important;
 }
 
-/* Mobile Nav Toggle */
+/* --- Mobile Nav Toggle --- */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -430,7 +503,7 @@ strong {
   background: linear-gradient(165deg, #e8b4b8 0%, #e8a098 20%, #e09860 42%, #e8a850 60%, #f0c060 78%, #fdf0c8 100%);
 }
 
-/* Texture subtile sur le hero — lueurs chaudes */
+/* Texture subtile sur le hero */
 .hero::before {
   content: '';
   position: absolute;
@@ -456,7 +529,6 @@ strong {
   z-index: 0;
 }
 
-/* Vignette subtile */
 .hero::after {
   content: '';
   position: absolute;
@@ -490,7 +562,7 @@ strong {
   color: var(--terracotta);
 }
 
-/* Hero lead — texte introductif, style éditorial */
+/* Hero lead */
 .hero-lead {
   font-size: 1.05rem;
   line-height: 1.7;
@@ -501,7 +573,7 @@ strong {
   color: var(--text);
 }
 
-/* Hero context — plus petit, plus factuel */
+/* Hero context */
 .hero-context {
   font-size: 0.9rem;
   line-height: 1.7;
@@ -536,7 +608,7 @@ strong {
   letter-spacing: -0.03em;
 }
 
-/* Hero badge — marqueur discret */
+/* Hero badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -596,7 +668,9 @@ strong {
   flex-wrap: wrap;
 }
 
-/* --- Buttons --- */
+/* =============================================
+   BUTTONS — Terracotta (Stitch)
+   ============================================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -613,11 +687,12 @@ strong {
 
 .btn-primary {
   background: var(--terracotta);
-  color: var(--white);
+  color: var(--bg-white);
 }
 
 .btn-primary:hover {
   background: var(--terracotta-dark);
+  color: var(--bg-white);
 }
 
 .btn-outline {
@@ -632,7 +707,6 @@ strong {
   border-color: var(--navy);
 }
 
-/* Dans les sections claires, btn-outline s'adapte */
 .section:not(.section-alt) .btn-outline,
 body > .section .btn-outline,
 section:not(.section-alt) .btn-outline {
@@ -643,7 +717,7 @@ section:not(.section-alt) .btn-outline {
 .section:not(.section-alt) .btn-outline:hover,
 section:not(.section-alt) .btn-outline:hover {
   background: var(--navy);
-  color: var(--white);
+  color: var(--bg-white);
   border-color: var(--navy);
 }
 
@@ -654,9 +728,10 @@ section:not(.section-alt) .btn-outline:hover {
 
 /* =============================================
    CARDS — Fond blanc, bordure fine, ombre légère
+   border-radius: 8px max (Stitch)
    ============================================= */
 .card {
-  background: var(--card-bg);
+  background: var(--bg-card);
   border-radius: 8px;
   padding: var(--space-lg);
   transition: transform var(--transition-fast), box-shadow var(--transition-base);
@@ -669,7 +744,7 @@ section:not(.section-alt) .btn-outline:hover {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
-/* Variation par position */
+/* Variation par position dans grid-3 */
 .grid-3 > .card:nth-child(3n+1) {
   border-left: none;
 }
@@ -679,7 +754,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .grid-3 > .card:nth-child(3n) {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   border-color: transparent;
   box-shadow: none;
 }
@@ -688,15 +763,15 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--surface-alt);
 }
 
-/* Dans section-alt, les cartes s'adaptent */
+/* Cartes dans section-alt */
 .section-alt .card {
-  background: var(--white);
+  background: var(--bg-white);
   border-color: rgba(0, 0, 0, 0.06);
   color: var(--text);
 }
 
 .section-alt .card:hover {
-  background: var(--cream-light);
+  background: var(--bg-beige-light);
 }
 
 .section-alt .card h3 {
@@ -708,7 +783,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .grid-3 > .card:nth-child(3n) {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   border-color: transparent;
 }
 
@@ -742,7 +817,9 @@ section:not(.section-alt) .btn-outline:hover {
   margin-bottom: 0;
 }
 
-/* --- Grids --- */
+/* =============================================
+   GRIDS — 2/3/4 colonnes responsives
+   ============================================= */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
@@ -761,7 +838,9 @@ section:not(.section-alt) .btn-outline:hover {
   gap: var(--space-lg);
 }
 
-/* --- Section Headers — épuré --- */
+/* =============================================
+   SECTION HEADERS
+   ============================================= */
 .section-header {
   text-align: left;
   margin-bottom: var(--space-xl);
@@ -773,8 +852,8 @@ section:not(.section-alt) .btn-outline:hover {
   font-weight: 400;
   color: var(--terracotta);
   margin-bottom: var(--space-sm);
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   background: none;
   padding: 0;
   border-radius: 0;
@@ -803,15 +882,17 @@ section:not(.section-alt) .btn-outline:hover {
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--terracotta);
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   background: none;
   padding: 0;
   border-radius: 0;
   margin-bottom: var(--space-sm);
 }
 
-/* --- Timeline --- */
+/* =============================================
+   TIMELINE
+   ============================================= */
 .timeline {
   position: relative;
   padding: var(--space-xl) 0;
@@ -842,7 +923,7 @@ section:not(.section-alt) .btn-outline:hover {
 .timeline-content {
   width: 45%;
   padding: var(--space-lg);
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -875,21 +956,23 @@ section:not(.section-alt) .btn-outline:hover {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--terracotta);
-  text-transform: none;
-  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: var(--space-sm);
 }
 
-/* --- Budget Calculator --- */
+/* =============================================
+   BUDGET CALCULATOR
+   ============================================= */
 .calculator {
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   padding: var(--space-xl);
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .section-alt .calculator {
-  background: var(--white);
+  background: var(--bg-white);
   border-color: rgba(0, 0, 0, 0.06);
   color: var(--text);
 }
@@ -961,7 +1044,7 @@ section:not(.section-alt) .btn-outline:hover {
 .calc-scenario button.active {
   border-color: var(--terracotta);
   background: var(--terracotta);
-  color: var(--white);
+  color: var(--bg-white);
 }
 
 .section-alt .calc-scenario button.active {
@@ -986,7 +1069,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .epargne-card {
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   padding: var(--space-xl);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -997,8 +1080,8 @@ section:not(.section-alt) .btn-outline:hover {
   font-size: 0.85rem;
   color: var(--text-light);
   margin-bottom: var(--space-xs);
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .epargne-chiffre {
@@ -1030,9 +1113,11 @@ section:not(.section-alt) .btn-outline:hover {
   font-weight: 600;
 }
 
-/* --- Neighborhood Cards --- */
+/* =============================================
+   QUARTIER CARDS
+   ============================================= */
 .quartier-card {
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   padding: var(--space-lg);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -1051,7 +1136,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .quartier-card {
-  background: var(--white);
+  background: var(--bg-white);
   border-color: rgba(0, 0, 0, 0.06);
   color: var(--text);
 }
@@ -1073,7 +1158,6 @@ section:not(.section-alt) .btn-outline:hover {
   color: var(--text);
 }
 
-/* Quartier header */
 .quartier-header {
   display: flex;
   justify-content: space-between;
@@ -1088,8 +1172,8 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--terracotta-ghost);
   padding: 0.15rem 0.55rem;
   border-radius: 4px;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .section-alt .quartier-badge {
@@ -1097,7 +1181,6 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--terracotta-ghost);
 }
 
-/* Quartier description */
 .quartier-desc {
   font-size: 0.88rem;
   line-height: 1.65;
@@ -1109,7 +1192,6 @@ section:not(.section-alt) .btn-outline:hover {
   color: var(--text-light);
 }
 
-/* Quartier filter */
 .quartier-filter {
   display: flex;
   justify-content: center;
@@ -1139,10 +1221,9 @@ section:not(.section-alt) .btn-outline:hover {
 .quartier-filter button.active {
   border-color: var(--terracotta);
   background: var(--terracotta);
-  color: var(--white);
+  color: var(--bg-white);
 }
 
-/* Quartiers Grid */
 .quartiers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -1170,7 +1251,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .meta-tag {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-size: 0.72rem;
@@ -1181,13 +1262,13 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .section-alt .meta-tag {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   color: var(--text-light);
 }
 
 .meta-tag.good {
-  background: var(--olive-ghost);
-  color: var(--olive-dark);
+  background: rgba(139, 195, 74, 0.10);
+  color: #6d9e38;
 }
 
 .meta-tag.warn {
@@ -1216,8 +1297,8 @@ section:not(.section-alt) .btn-outline:hover {
 .score-label {
   font-size: 0.6rem;
   color: var(--text-light);
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .section-alt .score-label {
@@ -1263,7 +1344,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .editorial-full-bleed {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   padding: var(--space-xl) 0;
   border-radius: 8px;
   margin-top: var(--space-lg);
@@ -1311,7 +1392,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .guide-card {
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   padding: var(--space-xl) var(--space-lg);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -1355,7 +1436,7 @@ section:not(.section-alt) .btn-outline:hover {
 
 /* Guide list */
 .guide-list {
-  background: var(--white);
+  background: var(--bg-white);
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
@@ -1396,7 +1477,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .guide-list-item:hover {
-  background: var(--cream-light);
+  background: var(--bg-beige-light);
   color: var(--text);
 }
 
@@ -1432,7 +1513,7 @@ section:not(.section-alt) .btn-outline:hover {
    SECTION CTA — Final call-to-action
    ============================================= */
 .section-cta {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   color: var(--text);
   text-align: center;
   padding: var(--space-2xl) 0;
@@ -1453,7 +1534,7 @@ section:not(.section-alt) .btn-outline:hover {
 
 .section-cta .btn-primary {
   background: var(--terracotta);
-  color: var(--white);
+  color: var(--bg-white);
 }
 
 .section-cta .btn-primary:hover {
@@ -1461,13 +1542,13 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 /* =============================================
-   FOOTER — Fond BLANC (Stitch)
+   FOOTER — Fond BEIGE (#fbfbe2), texte foncé (Stitch)
    ============================================= */
 .footer {
-  background-color: var(--white);
+  background-color: var(--bg-beige);
   color: var(--text-light);
   padding: var(--space-2xl) 0 var(--space-lg);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .footer-grid {
@@ -1481,8 +1562,8 @@ section:not(.section-alt) .btn-outline:hover {
   color: var(--text);
   margin-bottom: var(--space-md);
   font-size: 0.8rem;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .footer a {
@@ -1520,13 +1601,28 @@ section:not(.section-alt) .btn-outline:hover {
   color: var(--text-light);
 }
 
-/* --- Content Pages --- */
+.footer-map-reference {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-map-reference span {
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+/* =============================================
+   CONTENT PAGES — Pages intérieures
+   ============================================= */
 .content-page {
   padding-top: 100px;
 }
 
 .content-header {
-  background: var(--cream-dark);
+  background: var(--bg-beige-dark);
   padding: var(--space-2xl) 0 var(--space-xl);
   margin-bottom: var(--space-xl);
   color: var(--text);
@@ -1592,7 +1688,9 @@ section:not(.section-alt) .btn-outline:hover {
   border-left: none;
 }
 
-/* --- Animations — ease-out-quart only --- */
+/* =============================================
+   ANIMATIONS — ease-out-quart only
+   ============================================= */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -1604,7 +1702,9 @@ section:not(.section-alt) .btn-outline:hover {
   transform: translateY(0);
 }
 
-/* --- prefers-reduced-motion --- */
+/* =============================================
+   prefers-reduced-motion
+   ============================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1724,12 +1824,16 @@ section:not(.section-alt) .btn-outline:hover {
     height: 100vh;
     width: 280px;
     flex-direction: column;
-    background: var(--white);
+    background: var(--bg-beige);
     padding: 6rem var(--space-lg) var(--space-lg);
     gap: var(--space-md);
     transition: right var(--transition-base);
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.10);
     z-index: 999;
+  }
+
+  .navbar.navbar-navy .nav-links {
+    background: var(--navy);
   }
 
   .nav-links.open {
