@@ -10,20 +10,20 @@
 
 /* --- CSS Variables — Stitch Palette --- */
 :root {
-  /* === Header/Footer — Deep Navy === */
-  --navy:          #032B44;
-  --navy-dark:     #021d2e;
-  --navy-light:    #0a3f5c;
+  /* === Header/Footer — Deep Navy (Stitch exact) === */
+  --navy:          #001626;
+  --navy-dark:     #000d14;
+  --navy-light:    #002644;
 
-  /* === Fond principal — Warm Beige (choix volontaire de Florian) === */
-  --cream:         #F5F5DC;
-  --cream-light:   #fafaf0;
-  --cream-dark:    #e8e8c8;
+  /* === Fond principal — Warm Beige (Stitch exact) === */
+  --cream:         #fbfbe2;
+  --cream-light:   #fdfded;
+  --cream-dark:    #f0f0d0;
 
-  /* === Accents === */
-  --terracotta:    #C4734B;
-  --terracotta-dark: #a55a38;
-  --terracotta-ghost: rgba(196, 115, 75, 0.10);
+  /* === Accents — Terracotta (Stitch exact) === */
+  --terracotta:    #924b26;
+  --terracotta-dark: #6e381c;
+  --terracotta-ghost: rgba(146, 75, 38, 0.10);
   --olive:         #8BC34A;
   --olive-dark:    #6d9e38;
   --olive-ghost:   rgba(139, 195, 74, 0.10);
