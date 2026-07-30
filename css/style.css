@@ -1,7 +1,7 @@
 /* =============================================
    MAXPATRIE — Design Stitch by Florian
    "Maxpatrie Home - Spanish Heritage"
-   Palette : Deep Navy / Warm Beige / Terracotta / Olive
+   Palette : Warm Beige / Terracotta / Deep Navy (accents only)
    Typo  : Playfair Display (headings) + Source Sans 3 (body)
    ============================================= */
 
@@ -10,7 +10,7 @@
 
 /* --- CSS Variables — Stitch Palette --- */
 :root {
-  /* === Header/Footer — Deep Navy (Stitch exact) === */
+  /* === Colors — Stitch exact === */
   --navy:          #001626;
   --navy-dark:     #000d14;
   --navy-light:    #002644;
@@ -201,8 +201,9 @@ strong {
 }
 
 /* =============================================
-   MOTIF NAVY TEXTURE — CSS pur
+   MOTIF AZULEJOS TEXTURE — CSS pur
    Fond géométrique répétable style carreaux
+   Conservé pour les sections heritage
    ============================================= */
 .azulejos-bg {
   background-color: var(--navy);
@@ -236,7 +237,7 @@ strong {
     80px 80px;
 }
 
-/* Variante plus subtile pour footer */
+/* Variante plus subtile */
 .azulejos-subtle {
   background-color: var(--navy-dark);
   background-image:
@@ -256,7 +257,9 @@ strong {
     );
 }
 
-/* --- Navbar — Deep Navy, fixed --- */
+/* =============================================
+   NAVBAR — Fond BLANC, texte foncé (Stitch)
+   ============================================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -264,16 +267,18 @@ strong {
   right: 0;
   z-index: 1000;
   padding: var(--space-md) 0;
-  background: var(--navy);
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(3, 43, 68, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
 }
 
 .navbar .container {
@@ -286,11 +291,12 @@ strong {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
   letter-spacing: -0.02em;
+  text-decoration: none;
 }
 
 .nav-logo .emoji {
@@ -305,7 +311,7 @@ strong {
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-light);
   font-size: 0.85rem;
   font-weight: 400;
   font-family: var(--font-body);
@@ -314,7 +320,7 @@ strong {
 }
 
 .nav-links a:hover {
-  color: var(--white);
+  color: var(--navy);
 }
 
 .nav-links a::after {
@@ -331,6 +337,35 @@ strong {
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+/* Search bar in navbar */
+.nav-search {
+  display: flex;
+  align-items: center;
+  margin-left: var(--space-md);
+}
+
+.nav-search input {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  background: var(--cream-light);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  width: 160px;
+}
+
+.nav-search input:focus {
+  border-color: var(--terracotta);
+}
+
+.nav-search input::placeholder {
+  color: var(--text-light);
+  opacity: 0.6;
 }
 
 .nav-cta {
@@ -366,7 +401,7 @@ strong {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--white);
+  background: var(--text);
   transition: all var(--transition-base);
 }
 
@@ -383,7 +418,7 @@ strong {
 }
 
 /* =============================================
-   HERO — Deep Navy pleine largeur, texte "Valencia"
+   HERO — Dégradé rose → jaune/orangé (Stitch)
    ============================================= */
 .hero {
   min-height: 100vh;
@@ -392,41 +427,41 @@ strong {
   position: relative;
   overflow: hidden;
   clip-path: inset(0);
-  background: var(--navy);
+  background: linear-gradient(165deg, #e8b4b8 0%, #e8a098 20%, #e09860 42%, #e8a850 60%, #f0c060 78%, #fdf0c8 100%);
 }
 
-/* Texture subtile sur le hero */
+/* Texture subtile sur le hero — lueurs chaudes */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse 60% 50% at 75% 30%, rgba(196, 115, 75, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(139, 195, 74, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 75% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 25% 70%, rgba(232, 168, 80, 0.12) 0%, transparent 60%),
     repeating-linear-gradient(
       45deg,
       transparent,
       transparent 30px,
-      rgba(255, 255, 255, 0.012) 30px,
-      rgba(255, 255, 255, 0.012) 32px
+      rgba(255, 255, 255, 0.04) 30px,
+      rgba(255, 255, 255, 0.04) 32px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 30px,
-      rgba(255, 255, 255, 0.012) 30px,
-      rgba(255, 255, 255, 0.012) 32px
+      rgba(255, 255, 255, 0.04) 30px,
+      rgba(255, 255, 255, 0.04) 32px
     );
   pointer-events: none;
   z-index: 0;
 }
 
-/* Vignette subtile pour focus */
+/* Vignette subtile */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.30) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.12) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -435,20 +470,20 @@ strong {
   position: relative;
   z-index: 2;
   max-width: 640px;
-  color: var(--white);
+  color: var(--text);
 }
 
 .hero-content h1,
 .hero-content p,
 .hero-content .hero-subtitle {
-  color: var(--white);
+  color: var(--text);
 }
 
 .hero-content h1 {
   margin-bottom: var(--space-md);
   line-height: 1.05;
   font-size: clamp(2.6rem, 7vw, 5rem);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.30);
 }
 
 .hero h1 .highlight {
@@ -460,9 +495,10 @@ strong {
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: var(--space-md);
-  opacity: 0.90;
+  opacity: 0.85;
   max-width: 560px;
   font-weight: 300;
+  color: var(--text);
 }
 
 /* Hero context — plus petit, plus factuel */
@@ -470,8 +506,9 @@ strong {
   font-size: 0.9rem;
   line-height: 1.7;
   margin-bottom: var(--space-lg);
-  opacity: 0.78;
+  opacity: 0.75;
   max-width: 540px;
+  color: var(--text);
 }
 
 /* Hero countdown */
@@ -485,7 +522,7 @@ strong {
 
 .countdown-label {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.60);
+  color: var(--text-light);
   text-transform: none;
   letter-spacing: 0;
 }
@@ -506,7 +543,7 @@ strong {
   gap: var(--space-sm);
   font-size: 0.85rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.80);
+  color: var(--text-light);
   margin-bottom: var(--space-lg);
   letter-spacing: 0;
   text-transform: none;
@@ -523,6 +560,7 @@ strong {
   margin-bottom: var(--space-xl);
   max-width: 520px;
   opacity: 0.82;
+  color: var(--text);
 }
 
 .hero-stats {
@@ -539,14 +577,14 @@ strong {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .hero-stat-label {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-light);
   margin-top: var(--space-xs);
   text-transform: none;
   letter-spacing: 0;
@@ -584,14 +622,14 @@ strong {
 
 .btn-outline {
   background: transparent;
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.40);
+  color: var(--navy);
+  border: 1.5px solid rgba(0, 22, 38, 0.35);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.70);
+  background: rgba(0, 22, 38, 0.06);
+  color: var(--navy);
+  border-color: var(--navy);
 }
 
 /* Dans les sections claires, btn-outline s'adapte */
@@ -1394,21 +1432,21 @@ section:not(.section-alt) .btn-outline:hover {
    SECTION CTA — Final call-to-action
    ============================================= */
 .section-cta {
-  background: var(--navy);
-  color: var(--white);
+  background: var(--cream-dark);
+  color: var(--text);
   text-align: center;
   padding: var(--space-2xl) 0;
 }
 
 .section-cta h2 {
-  color: var(--white);
+  color: var(--text);
   margin-bottom: var(--space-md);
 }
 
 .cta-text {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.80);
+  color: var(--text-light);
   max-width: 580px;
   margin: 0 auto var(--space-xl);
 }
@@ -1422,26 +1460,14 @@ section:not(.section-alt) .btn-outline:hover {
   background: var(--terracotta-dark);
 }
 
-/* --- Footer — Deep Navy --- */
+/* =============================================
+   FOOTER — Fond BLANC (Stitch)
+   ============================================= */
 .footer {
-  background-color: var(--navy-dark);
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 40px,
-      rgba(255, 255, 255, 0.012) 40px,
-      rgba(255, 255, 255, 0.012) 42px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      rgba(196, 115, 75, 0.02) 40px,
-      rgba(196, 115, 75, 0.02) 42px
-    );
-  color: rgba(255, 255, 255, 0.62);
+  background-color: var(--white);
+  color: var(--text-light);
   padding: var(--space-2xl) 0 var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .footer-grid {
@@ -1452,7 +1478,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .footer h4 {
-  color: var(--white);
+  color: var(--text);
   margin-bottom: var(--space-md);
   font-size: 0.8rem;
   text-transform: none;
@@ -1460,7 +1486,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .footer a {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-light);
   font-size: 0.82rem;
   display: inline-block;
   margin-bottom: 0.25rem;
@@ -1471,7 +1497,7 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .footer p {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-light);
   font-size: 0.82rem;
 }
 
@@ -1485,13 +1511,13 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-light);
 }
 
 /* --- Content Pages --- */
@@ -1500,18 +1526,18 @@ section:not(.section-alt) .btn-outline:hover {
 }
 
 .content-header {
-  background: var(--navy);
+  background: var(--cream-dark);
   padding: var(--space-2xl) 0 var(--space-xl);
   margin-bottom: var(--space-xl);
-  color: var(--white);
+  color: var(--text);
 }
 
 .content-header h1 {
-  color: var(--white);
+  color: var(--text);
 }
 
 .content-header p {
-  color: rgba(255, 255, 255, 0.70);
+  color: var(--text-light);
 }
 
 .content-header .badge {
@@ -1698,11 +1724,11 @@ section:not(.section-alt) .btn-outline:hover {
     height: 100vh;
     width: 280px;
     flex-direction: column;
-    background: var(--navy);
+    background: var(--white);
     padding: 6rem var(--space-lg) var(--space-lg);
     gap: var(--space-md);
     transition: right var(--transition-base);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.10);
     z-index: 999;
   }
 
@@ -1719,7 +1745,7 @@ section:not(.section-alt) .btn-outline:hover {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.15);
     z-index: 998;
   }
 
@@ -1753,6 +1779,10 @@ section:not(.section-alt) .btn-outline:hover {
 
   .countdown-value {
     font-size: 1.5rem;
+  }
+
+  .nav-search {
+    display: none;
   }
 }
 

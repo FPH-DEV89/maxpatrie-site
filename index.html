@@ -17,37 +17,38 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Stitch Design Overrides — Header Navy + Hero Valencia + Cultural Sections -->
+  <!-- Stitch Design Overrides — Header Blanc + Hero Rose→Jaune + Sections Culturelles -->
   <style>
     /* === STITCH DESIGN SYSTEM === */
     :root {
-      --stitch-navy: #032B44;
-      --stitch-navy-dark: #021e30;
-      --stitch-valencia-orange: #e87722;
+      --stitch-navy: #001626;
+      --stitch-navy-dark: #000d14;
+      --stitch-valencia-orange: #e8a850;
       --stitch-med-sea: #1a8fa0;
       --stitch-warm-cream: #fef9f2;
       --stitch-sand: #f5e6d3;
-      --stitch-terracotta: #c67b4b;
+      --stitch-terracotta: #924b26;
     }
 
-    /* --- NAV HEADER NAVY --- */
+    /* --- NAV HEADER — Fond BLANC, texte foncé --- */
     .navbar {
-      background: var(--stitch-navy);
+      background: #ffffff;
       padding: 0.6rem 0;
-      border-bottom: 2px solid rgba(232,119,34,0.25);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
     .navbar.scrolled {
-      background: rgba(3,43,68,0.96);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 0.4rem 0;
-      border-bottom: 2px solid rgba(232,119,34,0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     }
     .navbar .nav-logo {
       font-family: var(--font-heading);
       font-size: 1.6rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #001626;
       letter-spacing: 0.04em;
       text-decoration: none;
     }
@@ -56,19 +57,19 @@
       margin-right: 0.3rem;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.85);
+      color: #555555;
       font-weight: 500;
       font-size: 0.95rem;
       transition: color 0.2s ease;
     }
     .nav-links a:hover {
-      color: #e8a940;
+      color: #001626;
     }
     .nav-toggle span {
-      background: #ffffff;
+      background: #001626;
     }
 
-    /* --- HERO VALENCIA --- */
+    /* --- HERO VALENCIA — Dégradé rose → jaune/orangé --- */
     .hero-valencia {
       position: relative;
       min-height: 100vh;
@@ -78,28 +79,28 @@
       text-align: center;
       overflow: hidden;
       padding: 6rem 2rem 4rem;
-      background: linear-gradient(160deg, #032B44 0%, #0a4a6e 25%, #1a6b8a 45%, #d4874a 72%, #e8a850 88%, #f5c97e 100%);
+      background: linear-gradient(165deg, #e8b4b8 0%, #e8a098 20%, #e09860 42%, #e8a850 60%, #f0c060 78%, #fdf0c8 100%);
     }
     .hero-valencia::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 80% 85%, rgba(232,168,80,0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 20% 30%, rgba(255,255,255,0.10) 0%, transparent 55%);
+        radial-gradient(ellipse 80% 60% at 80% 85%, rgba(255, 255, 255, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
       pointer-events: none;
       z-index: 0;
     }
-    /* Azulejos pattern overlay */
+    /* Azulejos pattern overlay subtil */
     .hero-valencia::after {
       content: '';
       position: absolute;
       inset: 0;
-      opacity: 0.05;
+      opacity: 0.04;
       pointer-events: none;
       z-index: 0;
-      background: repeating-linear-gradient(45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 20px),
-                  repeating-linear-gradient(-45deg, #e8a850 0px, #e8a850 1px, transparent 1px, transparent 20px);
+      background: repeating-linear-gradient(45deg, #924b26 0px, #924b26 1px, transparent 1px, transparent 20px),
+                  repeating-linear-gradient(-45deg, #924b26 0px, #924b26 1px, transparent 1px, transparent 20px);
     }
     .hero-valencia .hero-inner {
       position: relative;
@@ -108,10 +109,10 @@
     }
     .hero-valencia .hero-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      color: #001626;
       padding: 0.4rem 1.4rem;
       border-radius: 50px;
       font-size: 0.9rem;
@@ -123,29 +124,29 @@
       font-size: clamp(3.5rem, 9vw, 7rem);
       font-family: var(--font-heading);
       font-weight: 700;
-      color: #ffffff;
+      color: #001626;
       line-height: 1.05;
       margin-bottom: 0.5rem;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      text-shadow: 0 2px 20px rgba(255, 255, 255, 0.40);
       letter-spacing: -0.02em;
     }
     .hero-valencia .hero-subtitle {
       font-size: clamp(1.2rem, 2.8vw, 1.7rem);
-      color: rgba(255,255,255,0.88);
+      color: rgba(0, 22, 38, 0.72);
       font-weight: 300;
       margin-bottom: 0.8rem;
       font-style: italic;
     }
     .hero-valencia .hero-lead {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
+      color: rgba(0, 22, 38, 0.68);
       max-width: 650px;
       margin: 0 auto 1rem;
       line-height: 1.7;
     }
     .hero-valencia .hero-context {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(0, 22, 38, 0.60);
       max-width: 620px;
       margin: 0 auto 1.8rem;
       line-height: 1.65;
@@ -154,50 +155,50 @@
       margin-bottom: 2rem;
     }
     .hero-valencia .countdown-label {
-      color: rgba(255,255,255,0.7);
+      color: rgba(0, 22, 38, 0.60);
       font-size: 0.95rem;
     }
     .hero-valencia .countdown-value {
       font-family: var(--font-heading);
       font-size: 2.2rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #924b26;
       margin: 0 0.2rem;
     }
     .hero-valencia .btn-primary {
       display: inline-block;
-      background: #e8a940;
-      color: #032B44;
+      background: #924b26;
+      color: #ffffff;
       font-weight: 700;
       font-size: 1.05rem;
       padding: 0.9rem 2.6rem;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 18px rgba(232,169,64,0.35);
+      box-shadow: 0 4px 18px rgba(146, 75, 38, 0.30);
     }
     .hero-valencia .btn-primary:hover {
-      background: #f0b855;
+      background: #6e381c;
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(232,169,64,0.45);
-      color: #032B44;
+      box-shadow: 0 6px 24px rgba(146, 75, 38, 0.40);
+      color: #ffffff;
     }
     .hero-valencia .btn-outline-white {
       display: inline-block;
       background: transparent;
-      color: #ffffff;
+      color: #001626;
       font-weight: 600;
       font-size: 1rem;
       padding: 0.85rem 2.4rem;
       border-radius: 50px;
       text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.45);
+      border: 2px solid rgba(0, 22, 38, 0.30);
       transition: all 0.25s ease;
     }
     .hero-valencia .btn-outline-white:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
+      border-color: #001626;
+      background: rgba(0, 22, 38, 0.05);
+      color: #001626;
     }
     .hero-cta-group {
       display: flex;
@@ -236,10 +237,10 @@
       background: var(--stitch-warm-cream);
     }
 
-    /* Heritage — med-blue-deep bg */
+    /* Heritage — deep navy bg */
     .section-heritage {
       background: var(--med-blue-deep);
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
     }
     .section-heritage h2,
     .section-heritage h3 {
@@ -249,10 +250,10 @@
       background: var(--saffron);
     }
 
-    /* Culture Cards */
+    /* Culture Cards — 2 colonnes */
     .culture-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       max-width: var(--max-width);
       margin: 0 auto;
@@ -263,13 +264,13 @@
       border-radius: 14px;
       padding: 2rem 1.8rem;
       text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(232,169,64,0.12);
+      border: 1px solid rgba(146, 75, 38, 0.12);
     }
     .culture-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
     }
     .culture-card .card-emoji {
       font-size: 3.5rem;
@@ -298,15 +299,15 @@
       padding: 0 var(--space-lg);
     }
     .heritage-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .heritage-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(232,169,64,0.45);
+      border-color: rgba(146, 75, 38, 0.45);
     }
     .heritage-card-visual {
       height: 180px;
@@ -316,14 +317,14 @@
       font-size: 5rem;
     }
     .heritage-card-visual.azulejos-bg-subtle {
-      background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(232,169,64,0.1) 14px, rgba(232,169,64,0.1) 16px),
-                  repeating-linear-gradient(-45deg, transparent, transparent 14px, rgba(232,169,64,0.1) 14px, rgba(232,169,64,0.1) 16px);
+      background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(146, 75, 38, 0.10) 14px, rgba(146, 75, 38, 0.10) 16px),
+                  repeating-linear-gradient(-45deg, transparent, transparent 14px, rgba(146, 75, 38, 0.10) 14px, rgba(146, 75, 38, 0.10) 16px);
     }
     .heritage-card-visual.ciudad-bg {
       background: linear-gradient(135deg, #1a6b8a 0%, #0d4155 40%, #4a9db5 70%, #e8f4f8 100%);
     }
     .heritage-card-visual.historico-bg {
-      background: linear-gradient(160deg, #c67b4b 0%, #d4a06a 40%, #f5e6d3 75%, #ffffff 100%);
+      background: linear-gradient(160deg, #924b26 0%, #c49060 40%, #f5e6d3 75%, #ffffff 100%);
     }
     .heritage-card-body {
       padding: 1.5rem 1.8rem;
@@ -335,7 +336,7 @@
       margin-bottom: 0.5rem;
     }
     .heritage-card-body p {
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       font-size: 0.92rem;
       line-height: 1.6;
     }
@@ -353,7 +354,7 @@
       background: #ffffff;
       border-radius: 14px;
       padding: 2rem 1.6rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
       border-left: 4px solid var(--saffron);
       transition: transform 0.3s ease;
     }
@@ -376,31 +377,32 @@
       line-height: 1.6;
     }
 
-    /* --- FOOTER NAVY --- */
+    /* --- FOOTER — Fond BLANC --- */
     .footer {
-      background: var(--stitch-navy);
-      color: rgba(255,255,255,0.75);
+      background: #ffffff;
+      color: #555555;
       padding: 3rem 0 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
     .footer h4 {
-      color: #ffffff;
+      color: #001626;
       font-family: var(--font-heading);
       font-size: 1.05rem;
       margin-bottom: 1rem;
     }
     .footer a {
-      color: rgba(255,255,255,0.6);
+      color: #555555;
       transition: color 0.2s ease;
     }
     .footer a:hover {
-      color: var(--saffron);
+      color: #924b26;
     }
     .footer-brand p {
-      color: rgba(255,255,255,0.55);
+      color: #555555;
       font-size: 0.92rem;
     }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       padding-top: 1.2rem;
       margin-top: 2rem;
       display: flex;
@@ -408,12 +410,13 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       font-size: 0.85rem;
+      color: #777777;
     }
     .footer-map-reference {
       margin-top: 1.5rem;
       text-align: center;
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.4);
+      color: #999999;
     }
     .footer-map-reference span {
       font-size: 1.5rem;
@@ -457,7 +460,7 @@
 </head>
 <body>
 
-  <!-- ===== NAVIGATION — HEADER NAVY ===== -->
+  <!-- ===== NAVIGATION — HEADER BLANC ===== -->
   <nav class="navbar" role="navigation">
     <div class="container">
       <a href="/" class="nav-logo"><span class="flag">🇪🇸</span>MAXPATRIE</a>
@@ -475,7 +478,7 @@
   </nav>
   <div class="nav-overlay"></div>
 
-  <!-- ===== HERO — VALENCIA ===== -->
+  <!-- ===== HERO — VALENCIA, Dégradé Rose → Jaune ===== -->
   <header class="hero-valencia" id="accueil">
     <div class="hero-inner">
       <div class="hero-badge">🇪🇸 Art de Vivre & Culture Espagnole</div>
@@ -487,7 +490,7 @@
       </p>
 
       <p class="hero-context">
-        J'm'appelle Florian. 35 ans, logisticien, 12 piges dans le métier. On met <strong style="color:#fff;">40&nbsp;000&nbsp;€</strong> de côté, on apprend l'espagnol, et on vise l'été 2028. Ce site, c'est notre journal de bord. Tout ce que j'apprends, je le pose ici. Si t'as le même projet, sers-toi. 🌊
+        J'm'appelle Florian. 35 ans, logisticien, 12 piges dans le métier. On met <strong style="color:#001626;">40&nbsp;000&nbsp;€</strong> de côté, on apprend l'espagnol, et on vise l'été 2028. Ce site, c'est notre journal de bord. Tout ce que j'apprends, je le pose ici. Si t'as le même projet, sers-toi. 🌊
       </p>
 
       <div class="hero-countdown">
@@ -539,7 +542,7 @@
       </div>
 
       <div class="culture-card fade-in">
-        <span class="card-emoji">🌊</span>
+        <span class="card-emoji">🏖️</span>
         <h3>La Méditerranée au Quotidien</h3>
         <p>
           La Malvarrosa à 15 minutes en bus. La Patacona pour les dimanches farniente. L'Albufera à 20 bornes — un coucher de soleil sur la lagune, des flamants roses, et ce silence que tu trouves nulle part ailleurs. La mer, c'est pas un « plus » à Valencia : c'est le décor permanent.
@@ -902,7 +905,7 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER — NAVY + CARTE ===== -->
+  <!-- ===== FOOTER — Fond BLANC ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
